@@ -537,6 +537,7 @@ INPUT ../outputs/figures/fig2_community_demand_stack.png
 INPUT ../outputs/figures/fig2_community_demand_stack.png
 INPUT ../outputs/figures/fig2_community_demand_stack.png
 INPUT ../outputs/figures/fig2_community_demand_stack.png
+INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8a.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong57.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5c.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong53.tfm
@@ -586,6 +587,7 @@ INPUT ../outputs/figures/fig6_accessibility_by_elder_type.png
 INPUT ../outputs/figures/fig6_accessibility_by_elder_type.png
 INPUT ../outputs/figures/fig6_accessibility_by_elder_type.png
 INPUT ../outputs/figures/fig6_accessibility_by_elder_type.png
+INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong94.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei56.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei66.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong66.tfm
@@ -619,7 +621,6 @@ INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong95.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5c.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong57.tfm
 INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong59.tfm
-INPUT e:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong9c.tfm
 INPUT ../outputs/figures/fig7_scenario_metrics_compare.png
 INPUT ../outputs/figures/fig7_scenario_metrics_compare.png
 INPUT ../outputs/figures/fig7_scenario_metrics_compare.png
@@ -653,11 +654,12 @@ INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT c:/Windows/Fonts/simhei.ttf
-INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simsun.ttc
+INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simhei.ttf
+INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc

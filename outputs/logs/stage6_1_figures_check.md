@@ -3,14 +3,16 @@
 ## 生成方式
 
 - 数据型图表均使用 Python 绘制。
-- 因当前 Python 环境未安装 `matplotlib`，本阶段使用 Python 直接生成 SVG 矢量图。
+- 图 1 和图 2 保留 SVG 主文件，并补充 PNG 备用格式以兼容当前 LaTeX 编译链和后续排版软件。
 - 图 1 已标注各年份三类老人数量；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
 - 未使用大模型生图。
 
 ## 生成文件
 
 - 图1 三类老人五年数量预测趋势: `outputs\figures\fig1_population_forecast.svg`
+- 图1 PNG 备用格式: `outputs\figures\fig1_population_forecast.png`
 - 图2 第5年各小区实际服务需求结构: `outputs\figures\fig2_community_demand_stack.svg`
+- 图2 PNG 备用格式: `outputs\figures\fig2_community_demand_stack.png`
 
 ## 配套论文表格
 

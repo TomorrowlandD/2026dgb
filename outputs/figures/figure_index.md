@@ -8,8 +8,8 @@
 
 | 图号 | 图名 | 推荐正文位置 | 主文件 | 备用格式 | 数据来源 | 论文用途 |
 |---|---|---|---|---|---|---|
-| 图 1 | 三类老人五年预测趋势图 | 6.1 老人数量与需求预测结果 | `fig1_population_forecast.svg` | 无 | `outputs/tables/problem1_population_forecast.csv` | 展示未来五年自理、半失能、失能老人规模变化 |
-| 图 2 | 第 5 年各小区实际服务需求结构图 | 6.1 老人数量与需求预测结果 | `fig2_community_demand_stack.svg` | 无 | `outputs/tables/problem1_actual_demand_by_community_service.csv` | 展示消费约束后各小区服务需求结构 |
+| 图 1 | 三类老人五年预测趋势图 | 6.1 老人数量与需求预测结果 | `fig1_population_forecast.svg` | `fig1_population_forecast.png` | `outputs/tables/problem1_population_forecast.csv` | 展示未来五年自理、半失能、失能老人规模变化 |
+| 图 2 | 第 5 年各小区实际服务需求结构图 | 6.1 老人数量与需求预测结果 | `fig2_community_demand_stack.svg` | `fig2_community_demand_stack.png` | `outputs/tables/problem1_actual_demand_by_community_service.csv` | 展示消费约束后各小区服务需求结构 |
 | 图 3 | 最优服务站-小区分配示意图 | 6.2 服务站选址与规模优化结果 | `fig3_station_assignment.svg` | `fig3_station_assignment.png` | `outputs/tables/problem2_assignment.csv`; `outputs/tables/problem2_best_station_plan.csv`; `outputs/tables/stage1_distance_matrix.csv` | 展示最优站点位置、规模和服务覆盖关系 |
 | 图 4 | 各服务站利用率与容量可得系数图 | 6.2 服务站选址与规模优化结果 | `fig4_station_utilization_capacity.svg` | `fig4_station_utilization_capacity.png` | `outputs/tables/problem2_station_utilization.csv` | 展示各站点服务能力利用情况和容量约束程度 |
 | 图 5 | 优化价格与基准价格对比图 | 6.3 定价与补贴优化结果 | `fig5_price_vs_baseline.svg` | `fig5_price_vs_baseline.png` | `outputs/tables/problem3_prices.csv` | 展示补贴导向定价下各服务价格相对基准价格的变化 |

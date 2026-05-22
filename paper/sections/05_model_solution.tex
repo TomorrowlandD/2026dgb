@@ -14,19 +14,96 @@
 
 \subsubsection{老人数量预测模型的建立}
 
-【待补充：步骤 5 撰写老人数量预测模型。】
+问题一首先在小区层面预测规划期内三类老人数量。设第 $t$ 年末小区 $i$ 中自理、半失能和失能老人数分别为 $N_{i,1}^{(t)}$、$N_{i,2}^{(t)}$ 和 $N_{i,3}^{(t)}$，则该小区老人总数满足
+\begin{equation}
+  N_i^{(t)}=N_{i,1}^{(t)}+N_{i,2}^{(t)}+N_{i,3}^{(t)}.
+  \label{eq:q1-population-total}
+\end{equation}
+模型将健康状态视为由自理向半失能、再由半失能向失能的单向转移过程。记年自然死亡率为 $\mu$，新增老人比例为 $g$，自理老人转为半失能老人的概率为 $p_{12}$，半失能老人转为失能老人的概率为 $p_{23}$。依据第 $t$ 年末状态预测第 $t+1$ 年末状态，可得
+\begin{align}
+  N_{i,1}^{(t+1)}
+  &=(1-\mu)(1-p_{12})N_{i,1}^{(t)}+gN_i^{(t)}, \label{eq:q1-self-care-recursion}\\
+  N_{i,2}^{(t+1)}
+  &=(1-\mu)\left[p_{12}N_{i,1}^{(t)}+(1-p_{23})N_{i,2}^{(t)}\right], \label{eq:q1-semi-disabled-recursion}\\
+  N_{i,3}^{(t+1)}
+  &=(1-\mu)\left[p_{23}N_{i,2}^{(t)}+N_{i,3}^{(t)}\right]. \label{eq:q1-disabled-recursion}
+\end{align}
+式 \eqref{eq:q1-self-care-recursion} 中，存量自理老人先经历死亡与健康状态转移，再与当年新增进入老年人口统计口径的老人合并；新增项 $gN_i^{(t)}$ 按题目口径直接进入自理老人状态，不再重复乘以死亡率。式 \eqref{eq:q1-semi-disabled-recursion} 同时保留由自理转入的老人和未继续恶化的半失能老人；式 \eqref{eq:q1-disabled-recursion} 则表明失能老人只考虑半失能转入与自身存量延续，不设置恢复通道。由 $t=0$ 逐年递推至 $t=5$，即可得到第 5 年末各小区三类老人数量，为服务需求预测提供人口基数。
 
 \subsubsection{理论服务需求与消费约束修正模型}
 
-【待补充：步骤 5 撰写理论服务需求与消费约束修正模型。】
+在老人数量预测结果基础上，本文先计算不考虑支付能力的理论服务需求。设 $q_{r,k}$ 为第 $r$ 类老人对服务项目 $k$ 的月均需求频次，则第 5 年末小区 $i$、老人类型 $r$、服务项目 $k$ 的理论月需求为
+\begin{equation}
+  D_{i,r,k}^{0}=N_{i,r}^{(5)}q_{r,k}.
+  \label{eq:q1-theoretical-demand}
+\end{equation}
+将老人类型汇总后，小区 $i$ 对服务 $k$ 的理论月需求为
+\begin{equation}
+  D_{i,k}^{0}=\sum_r D_{i,r,k}^{0}.
+  \label{eq:q1-theoretical-demand-community}
+\end{equation}
+该需求表示在服务站供给、满意度折减和消费预算均尚未介入时的潜在需求规模。
+
+为区分收费服务和公益服务，记六类服务集合为 $K$，并拆分为
+\begin{equation}
+  K=K_c\cup K_e,
+  \label{eq:q1-service-set}
+\end{equation}
+其中 $K_c$ 包含助餐、日间照料、上门护理、康复理疗和助浴五项收费服务，$K_e$ 仅包含公益免费的紧急救助。紧急救助不向老人收费，也不参与消费约束削减，因此保持
+\begin{equation}
+  D_{i,r,\text{紧急救助}}=D_{i,r,\text{紧急救助}}^{0}.
+  \label{eq:q1-emergency-demand}
+\end{equation}
+但该服务在后续站点容量和直接成本核算中仍保留其服务人次与资源占用。
+
+对收费服务，设 $Y_i$ 为小区 $i$ 老人月收入水平，$a_r$ 为第 $r$ 类老人的服务消费上限比例，$b_k$ 为服务 $k$ 的基准价格。则小区 $i$ 中第 $r$ 类老人的月服务消费预算和收费服务理论费用分别为
+\begin{align}
+  C_{i,r}&=N_{i,r}^{(5)}Y_i a_r, \label{eq:q1-budget}\\
+  M_{i,r}&=\sum_{k\in K_c}b_kD_{i,r,k}^{0}. \label{eq:q1-theoretical-fee}
+\end{align}
+若 $M_{i,r}\le C_{i,r}$，说明该类老人能够负担理论收费需求，故对任意 $k\in K_c$ 有
+\begin{equation}
+  D_{i,r,k}=D_{i,r,k}^{0}.
+  \label{eq:q1-demand-retain}
+\end{equation}
+若 $M_{i,r}>C_{i,r}$，则按照题目给定的等比例规则修正收费服务需求。定义缩减系数
+\begin{equation}
+  \alpha_{i,r}=\frac{C_{i,r}}{M_{i,r}+\varepsilon},
+  \label{eq:q1-demand-alpha}
+\end{equation}
+其中 $\varepsilon$ 为防止分母为零的小正数。此时各收费服务使用同一缩减比例：
+\begin{equation}
+  D_{i,r,k}=\alpha_{i,r}D_{i,r,k}^{0},
+  \qquad k\in K_c.
+  \label{eq:q1-demand-reduction}
+\end{equation}
+式 \eqref{eq:q1-demand-reduction} 只改变收费服务次数，不改变不同收费服务之间的理论需求结构比例；式 \eqref{eq:q1-emergency-demand} 则保证紧急救助实际需求始终等于其理论需求。为避免递推和需求修正中的累计舍入误差，本文在模型内部保留 $N_{i,r}^{(t)}$、$D_{i,r,k}^{0}$ 与 $D_{i,r,k}$ 的连续计算值，仅在论文展示服务需求次数时按需要四舍五入；金额、满意度、补贴、利润率和年度净收益等指标均不提前取整。
 
 \subsubsection{问题一模型的求解}
 
-【待补充：步骤 5 撰写问题一求解过程。】
+问题一按“人口递推--理论需求--消费约束修正”的顺序求解。首先以附件给出的各小区初始三类老人数为起点，依据式 \eqref{eq:q1-population-total}--\eqref{eq:q1-disabled-recursion} 逐年更新 $t=1,\ldots,5$ 的老人结构；其次将第 5 年末人口预测结果与服务频次参数相乘，依据式 \eqref{eq:q1-theoretical-demand} 形成“小区--老人类型--服务项目”层面的理论月需求；最后按式 \eqref{eq:q1-service-set} 拆分公益服务与收费服务，对收费服务逐一比较消费预算 $C_{i,r}$ 与理论费用 $M_{i,r}$，并在预算不足时使用统一系数 $\alpha_{i,r}$ 修正实际需求。
+
+求解结果保留了逐年人口预测、理论月需求、消费约束后实际月需求和预算检查四类输出。预算检查用于验证收费服务实际费用未超过消费上限，同时核对紧急救助未被消费约束削减。阶段检查结果表明，五年递推、需求非负性、预算使用率和取整展示口径均已通过复核，因此该需求结果可作为问题二服务站选址和问题三定价补贴模型的输入。
 
 \subsubsection{问题一结果的分析}
 
-【待补充：步骤 5 和步骤 9 撰写问题一结果分析。】
+由问题一求解结果可知，第 5 年末老人总数预测为 $7578.41$ 人，其中自理老人、半失能老人和失能老人分别为 $4981.93$ 人、$1470.85$ 人和 $1125.63$ 人。图 \ref{fig:q1-population-trend} 给出了三类老人从基期到第 5 年末的变化趋势：自理老人规模保持主体地位，失能老人数量随状态转移逐年增加，说明后续站点方案既要覆盖高频基础服务，也要关注护理类服务负荷的增长。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\textwidth]{fig1_population_forecast.png}
+  \caption{三类老人五年预测趋势图}
+  \label{fig:q1-population-trend}
+\end{figure}
+
+在服务需求方面，第 5 年末理论月需求总量为 $262609.62$ 次/月，经收费服务消费约束修正后，实际月需求总量为 $247753.32$ 次/月。说明支付能力约束会压缩部分收费服务需求，但并不改变紧急救助的公益需求口径。按服务项目汇总，实际需求中助餐和日间照料仍占较大规模，上门护理、康复理疗与助浴体现了半失能和失能老人对照护服务的差异化需求。图 \ref{fig:q1-demand-structure} 进一步展示了消费约束后各小区六类服务需求结构，可为后续服务站布局和容量配置提供直接依据。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.90\textwidth]{fig2_community_demand_stack.png}
+  \caption{第 5 年各小区实际服务需求结构图}
+  \label{fig:q1-demand-structure}
+\end{figure}
 
 \subsection{问题二模型的建立与求解}
 

@@ -2,9 +2,16 @@ from __future__ import annotations
 
 from html import escape
 from math import ceil
+import os
 from pathlib import Path
 
+MPL_CONFIG_DIR = Path(__file__).resolve().parents[1] / "paper" / "build" / "mplconfig"
+MPL_CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+os.environ.setdefault("MPLCONFIGDIR", str(MPL_CONFIG_DIR))
+
+import matplotlib.pyplot as plt
 import pandas as pd
+from matplotlib import font_manager
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +40,24 @@ COLORS_SERVICE = {
     "助浴": "#F59E0B",
     "紧急救助": "#64748B",
 }
+
+
+def configure_plot_style() -> None:
+    candidates = [
+        "Microsoft YaHei",
+        "SimHei",
+        "Noto Sans CJK SC",
+        "Source Han Sans SC",
+        "Arial Unicode MS",
+    ]
+    available = {font.name for font in font_manager.fontManager.ttflist}
+    for name in candidates:
+        if name in available:
+            plt.rcParams["font.sans-serif"] = [name]
+            break
+    plt.rcParams["axes.unicode_minus"] = False
+    plt.rcParams["figure.dpi"] = 120
+    plt.rcParams["savefig.dpi"] = 300
 
 
 def fmt_num(value: float) -> str:
@@ -65,6 +90,82 @@ def write_svg(path: Path, width: int, height: int, body: list[str]) -> None:
         "</svg>",
     ]
     path.write_text("\n".join(svg), encoding="utf-8")
+
+
+def write_population_png(trend: pd.DataFrame) -> Path:
+    configure_plot_style()
+    fig, ax = plt.subplots(figsize=(9.8, 6.0))
+    years = trend["year"].tolist()
+    for label in ELDER_TYPE_COLUMNS.values():
+        values = trend[label].tolist()
+        ax.plot(years, values, marker="o", linewidth=2.4, markersize=5.5, label=label, color=COLORS_ELDER[label])
+        for year, value in zip(years, values):
+            offset = 22 if label != "半失能老人" else -38
+            ax.annotate(
+                fmt_num(value),
+                (year, value),
+                xytext=(0, offset / 2),
+                textcoords="offset points",
+                ha="center",
+                fontsize=8.5,
+                color=COLORS_ELDER[label],
+                fontweight="bold",
+            )
+
+    ax.set_title("图1 三类老人五年预测趋势", fontsize=15, fontweight="bold", pad=14)
+    ax.set_xlabel("年份 $t$")
+    ax.set_ylabel("老人数量（人）")
+    ax.set_xticks(years)
+    ax.grid(axis="y", alpha=0.26)
+    ax.legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.13))
+    fig.tight_layout()
+
+    path = FIGURE_DIR / "fig1_population_forecast.png"
+    fig.savefig(path, bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def write_demand_stack_png(pivot: pd.DataFrame) -> Path:
+    configure_plot_style()
+    fig, ax = plt.subplots(figsize=(11.2, 6.6))
+    bottom = pd.Series(0.0, index=pivot.index)
+    for service in SERVICE_ORDER:
+        values = pivot[service].astype(float)
+        ax.bar(
+            pivot.index,
+            values,
+            bottom=bottom,
+            label=service,
+            color=COLORS_SERVICE[service],
+            linewidth=0.5,
+            edgecolor="white",
+        )
+        bottom += values
+
+    for community, total in bottom.items():
+        ax.annotate(
+            fmt_num(total),
+            (community, total),
+            xytext=(0, 5),
+            textcoords="offset points",
+            ha="center",
+            va="bottom",
+            fontsize=8.5,
+            fontweight="bold",
+        )
+
+    ax.set_title("图2 第5年各小区消费约束后实际服务需求结构", fontsize=15, fontweight="bold", pad=14)
+    ax.set_xlabel("小区")
+    ax.set_ylabel("实际月服务需求（次/月）")
+    ax.grid(axis="y", alpha=0.24)
+    ax.legend(frameon=False, bbox_to_anchor=(1.01, 1), loc="upper left")
+    fig.tight_layout()
+
+    path = FIGURE_DIR / "fig2_community_demand_stack.png"
+    fig.savefig(path, bbox_inches="tight")
+    plt.close(fig)
+    return path
 
 
 def build_population_trend() -> tuple[pd.DataFrame, Path]:
@@ -146,6 +247,7 @@ def build_population_trend() -> tuple[pd.DataFrame, Path]:
 
     path = FIGURE_DIR / "fig1_population_forecast.svg"
     write_svg(path, width, height, body)
+    write_population_png(trend)
     return trend, path
 
 
@@ -227,6 +329,7 @@ def build_demand_stack() -> tuple[pd.DataFrame, Path]:
 
     path = FIGURE_DIR / "fig2_community_demand_stack.svg"
     write_svg(path, width, height, body)
+    write_demand_stack_png(pivot)
     return pivot, path
 
 
@@ -239,10 +342,10 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
 
 ## 阶段 6.1：问题 1 图表
 
-| 图号 | 图名 | 文件 | 数据来源 | 用途 |
-|---|---|---|---|---|
-| 图1 | 三类老人五年数量预测趋势 | `fig1_population_forecast.svg` | `outputs/tables/problem1_population_forecast.csv` | 展示未来五年三类老人规模变化 |
-| 图2 | 第5年各小区实际服务需求结构 | `fig2_community_demand_stack.svg` | `outputs/tables/problem1_actual_demand_by_community_service.csv` | 展示消费约束后各小区服务需求结构 |
+| 图号 | 图名 | 主文件 | 备用格式 | 数据来源 | 用途 |
+|---|---|---|---|---|---|
+| 图1 | 三类老人五年数量预测趋势 | `fig1_population_forecast.svg` | `fig1_population_forecast.png` | `outputs/tables/problem1_population_forecast.csv` | 展示未来五年三类老人规模变化 |
+| 图2 | 第5年各小区实际服务需求结构 | `fig2_community_demand_stack.svg` | `fig2_community_demand_stack.png` | `outputs/tables/problem1_actual_demand_by_community_service.csv` | 展示消费约束后各小区服务需求结构 |
 """
     index_path.write_text(index_text, encoding="utf-8")
 
@@ -253,7 +356,7 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
 ## 生成方式
 
 - 数据型图表均使用 Python 绘制。
-- 因当前 Python 环境未安装 `matplotlib`，本阶段使用 Python 直接生成 SVG 矢量图。
+- 阶段 6.1 保留 SVG 主文件，并额外生成 PNG 备用格式以便 LaTeX 驱动和排版软件兼容。
 - 图 1 已标注各年份三类老人数量；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
 - 未使用大模型生图。
 

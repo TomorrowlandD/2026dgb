@@ -107,7 +107,180 @@
 
 \subsection{问题二模型的建立与求解}
 
-【待补充：步骤 6 撰写服务站选址、规模优化和覆盖评价模型。】
+\subsubsection{站点与规模组合枚举模型}
+
+问题二在问题一得到的消费约束后需求基础上，进一步确定服务站的建设位置、建设规模和小区服务分配关系。候选建站位置均来自十个小区，每个位置有“不建站、小型站、中型站、大型站”四种状态。设 $x_{j,m}$ 表示是否在候选位置 $j$ 建设规模为 $m$ 的服务站，则
+\begin{equation}
+  x_{j,m}=
+  \begin{cases}
+    1, & \text{在小区 }j\text{ 建设规模 }m\text{ 的服务站},\\
+    0, & \text{否则}.
+  \end{cases}
+  \label{eq:q2-station-variable}
+\end{equation}
+同一候选位置至多建设一个服务站，因此满足
+\begin{equation}
+  \sum_m x_{j,m}\le 1,
+  \qquad j=1,2,\ldots,10.
+  \label{eq:q2-one-scale}
+\end{equation}
+记 $B_m$ 为规模 $m$ 服务站的建设成本，单位为万元。题目给定问题二建设预算为 $120$ 万元，故建设方案需满足
+\begin{equation}
+  \sum_j\sum_m B_mx_{j,m}\le120.
+  \label{eq:q2-budget}
+\end{equation}
+同时，若小区 $i$ 被分配给服务站 $j$，则二者距离必须满足服务半径约束
+\begin{equation}
+  d_{ij}\le1000.
+  \label{eq:q2-radius}
+\end{equation}
+当 $d_{ij}>1000$ 时，服务站 $j$ 不进入小区 $i$ 的可选集合。
+
+由于每个小区均有四种建站状态，全部候选组合数为
+\begin{equation}
+  4^{10}=1048576.
+  \label{eq:q2-enumeration-count}
+\end{equation}
+本文对站点--规模组合进行逐项枚举，并在生成过程中同步累计建设成本；一旦式 \eqref{eq:q2-budget} 被违反，即提前剪去该分支。空方案被排除，预算可行方案再送入后续满意度、容量和利用率联动评价，从而在不改变优化口径的前提下降低无效计算量。
+
+\subsubsection{满意度、容量与分配迭代模型}
+
+对任一预算可行的建站方案，小区分配不仅受服务半径约束，还受距离满意度、响应满意度和价格满意度共同影响。设 $S_{1,ij}$ 为小区 $i$ 到站点 $j$ 的距离满意度，$S_{2,j}$ 为站点 $j$ 的响应满意度，$S_3$ 为价格满意度，则综合满意度取
+\begin{equation}
+  S_{ij}=0.2S_{1,ij}+0.3S_{2,j}+0.5S_3.
+  \label{eq:q2-satisfaction}
+\end{equation}
+问题二只比较站点位置和规模，尚未进入定价优化阶段，因此统一取
+\begin{equation}
+  S_3=1.
+  \label{eq:q2-price-satisfaction}
+\end{equation}
+在可达站点集合内，小区 $i$ 选择综合满意度最高的服务站：
+\begin{equation}
+  j^*(i)=\arg\max_{j:d_{ij}\le1000}S_{ij}.
+  \label{eq:q2-assignment}
+\end{equation}
+
+站点分配与响应满意度之间并非一次静态计算即可完成。分配关系决定服务人次，服务人次决定容量约束和利用率，利用率又将更新 $S_{2,j}$ 并反馈到式 \eqref{eq:q2-satisfaction}。为描述这一闭环，记 $\mathcal{A}_j$ 为最终分配给服务站 $j$ 的小区集合。对小区 $i$、老人类型 $r$ 和服务项目 $k$，满意度折减后、容量调整前的有效服务人次为
+\begin{equation}
+  E_{i,r,k}^{pre}=D_{i,r,k}S_{i,j^*(i)}.
+  \label{eq:q2-effective-pre}
+\end{equation}
+将老人类型汇总后有
+\begin{equation}
+  E_{i,k}^{pre}=\sum_rE_{i,r,k}^{pre}.
+  \label{eq:q2-effective-pre-service}
+\end{equation}
+若站点 $j$ 的日最大服务能力为 $Cap_j^{day}$，则其年容量与容量调整前年有效服务需求分别为
+\begin{align}
+  Cap_j^{year}&=365Cap_j^{day}, \label{eq:q2-annual-capacity}\\
+  Demand_j^{pre}&=12\sum_{i\in \mathcal{A}_j}\sum_kE_{i,k}^{pre}. \label{eq:q2-pre-demand}
+\end{align}
+据此定义容量可得系数
+\begin{equation}
+  \gamma_j=
+  \min\left(
+    1,\frac{Cap_j^{year}}{Demand_j^{pre}+\varepsilon}
+  \right).
+  \label{eq:q2-gamma}
+\end{equation}
+容量调整后的最终有效服务人次保留老人类型维度：
+\begin{equation}
+  E_{i,r,k}=\gamma_{j^*(i)}E_{i,r,k}^{pre},
+  \qquad
+  E_{i,k}=\sum_rE_{i,r,k}.
+  \label{eq:q2-effective-final}
+\end{equation}
+式 \eqref{eq:q2-effective-pre}--\eqref{eq:q2-effective-final} 既刻画了满意度和容量对服务获得量的共同折减，也为后续三类老人可及性评价保留了 $E_{i,r,k}$。
+
+进一步地，站点 $j$ 的利用率由容量调整后的有效服务量计算：
+\begin{equation}
+  u_j=
+  \frac{12\sum_{i\in \mathcal{A}_j}\sum_kE_{i,k}}
+  {365Cap_j^{day}+\varepsilon}.
+  \label{eq:q2-utilization}
+\end{equation}
+本文依据附件给出的利用率分段规则更新响应满意度 $S_{2,j}$。具体求解时，先令已建站点初始响应满意度为 $1$，再依次执行“筛选可达站点、计算综合满意度、完成小区分配、计算 $E^{pre}$、更新 $\gamma_j$ 与 $E$、计算利用率、更新 $S_2$”的迭代流程；当分配结果不再变化且响应满意度变化足够小，或达到最大迭代次数时停止。由此可避免将容量压力和响应质量割裂处理。
+
+\subsubsection{覆盖率与分层评价指标}
+
+为回答题目中的覆盖要求，本文同时报告题目口径服务覆盖率、地理覆盖率、有效服务覆盖率和需求满足率。设 $\theta$ 为小区获得有效服务的判定阈值，取 $\theta=1$ 次/月。若小区 $i$ 的最终有效服务量满足 $\sum_kE_{i,k}>\theta$，则记 $z_i^{srv}=1$，否则记为 $0$，于是
+\begin{equation}
+  CR_{srv}=
+  \frac{\sum_i z_i^{srv}N_i^{(5)}}{\sum_iN_i^{(5)}}.
+  \label{eq:q2-cr-srv}
+\end{equation}
+若存在已建服务站 $j$ 使 $d_{ij}\le1000$，则记 $z_i^{geo}=1$，由此定义地理覆盖率
+\begin{equation}
+  CR_{geo}=
+  \frac{\sum_i z_i^{geo}N_i^{(5)}}{\sum_iN_i^{(5)}}.
+  \label{eq:q2-cr-geo}
+\end{equation}
+进一步考虑满意度折减和容量折减，可得有效服务覆盖率
+\begin{equation}
+  CR_{eff}=
+  \frac{
+    \sum_iN_i^{(5)}
+    \min\left(
+      1,\frac{\sum_kE_{i,k}}{\sum_kD_{i,k}+\varepsilon}
+    \right)
+  }
+  {\sum_iN_i^{(5)}},
+  \label{eq:q2-cr-eff}
+\end{equation}
+以及总体需求满足率
+\begin{equation}
+  DR=
+  \frac{\sum_i\sum_kE_{i,k}}
+  {\sum_i\sum_kD_{i,k}+\varepsilon}.
+  \label{eq:q2-demand-rate}
+\end{equation}
+其中，$CR_{srv}$ 是以小区为基本评价单元的聚合近似。题目未提供个体老人实际获得服务的记录，因此本文只能依据小区最终有效服务量判断该小区老人是否被覆盖；为弥补这一粗粒度判断，结果分析中同时使用 $CR_{eff}$ 和 $DR$ 描述覆盖深度。
+
+记老人加权平均满意度为
+\begin{equation}
+  \bar S=
+  \frac{\sum_iN_i^{(5)}S_{i,j^*(i)}}{\sum_iN_i^{(5)}}.
+  \label{eq:q2-weighted-satisfaction}
+\end{equation}
+本文采用分层目标对候选方案排序：首先最大化 $CR_{srv}$，其次最大化 $CR_{eff}$，再次最大化 $\bar S$，随后最大化 $DR$，若上述指标仍接近，则选择建设成本更低的方案。其优先级可写为
+\begin{equation}
+  \max CR_{srv}
+  \rightarrow
+  \max CR_{eff}
+  \rightarrow
+  \max \bar S
+  \rightarrow
+  \max DR
+  \rightarrow
+  \min Cost.
+  \label{eq:q2-hierarchical-objective}
+\end{equation}
+由于问题二尚未优化服务价格和政府补贴，年度利润不进入式 \eqref{eq:q2-hierarchical-objective} 的选址排序。待建设方案确定后，本文仅在基准价格下对其年度财务表现作测算，为问题三的补贴导向定价提供对照。
+
+\subsubsection{问题二模型的求解与结果分析}
+
+按上述枚举与迭代流程，模型共考察 $1048576$ 个站点状态组合，其中排除空方案后通过预算剪枝保留 $15207$ 个预算可行方案。最终最优建设方案是在小区 C 建设小型服务站，在小区 D 和 G 建设大型服务站，总建设成本为 $108$ 万元，未超过题目给定的 $120$ 万元上限。该方案将 C 站用于承接 C 小区需求，D 站服务 A、B、D、H、J 五个小区，G 站服务 E、F、G、I 四个小区。图 \ref{fig:q2-station-assignment} 展示了最优站点规模和小区分配关系；该图依据距离矩阵构造服务关系示意，不表示真实地理地图。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.90\textwidth]{fig3_station_assignment.png}
+  \caption{最优服务站--小区网络分配示意图}
+  \label{fig:q2-station-assignment}
+\end{figure}
+
+最优方案的题目口径服务覆盖率和地理覆盖率均达到约 $1$，说明在 1000 米服务半径约束下，十个小区均进入服务网络。进一步考虑满意度与容量折减后，有效服务覆盖率为 $0.8530$，需求满足率为 $0.8531$，老人加权平均满意度为 $0.8622$。这表明该方案已经实现广覆盖，但覆盖后的服务获得深度仍受站点响应和容量约束影响，因此不能仅依据“是否进入服务半径”评价布局质量。
+
+从站点能力利用情况看，C 小型站和 D 大型站的利用率均接近 $1$，G 大型站利用率为 $0.9831$；对应容量可得系数中，C 站和 D 站分别约为 $0.9978$ 和 $0.9767$，G 站为 $1$。图 \ref{fig:q2-station-utilization} 显示，三处站点均承担了较高服务负荷，其中 D 站在服务多个小区时出现更明显的容量折减。故模型选择两个大型站与一个小型站的组合，并非单纯追求站点数量，而是在预算、空间覆盖和服务负荷之间进行平衡。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\textwidth]{fig4_station_utilization_capacity.png}
+  \caption{各服务站利用率与容量可得系数图}
+  \label{fig:q2-station-utilization}
+\end{figure}
+
+此外，问题二还在该选址方案固定后使用基准价格测算年度收入、直接成本、固定运营成本和基准财务指标，用于回答题目对预计收益的测算要求。该财务测算只是基准价格下的结果报告，不参与站点位置与规模排序；最终补贴、服务价格和利润率约束将在问题三中重新联动求解。
 
 \subsection{问题三模型的建立与求解}
 

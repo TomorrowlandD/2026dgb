@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="560.0" y="38.0" font-size="22" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">图2 第5年各小区消费约束后实际服务需求结构</text>
+<text x="560.0" y="64.0" font-size="13" font-weight="400" text-anchor="middle" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">按服务项目堆叠，单位：次/月</text>
+<line x1="92" y1="568.0" x2="860" y2="568.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="80.0" y="573.0" font-size="12" font-weight="400" text-anchor="end" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">0</text>
+<line x1="92" y1="447.0" x2="860" y2="447.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="80.0" y="452.0" font-size="12" font-weight="400" text-anchor="end" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">10,000</text>
+<line x1="92" y1="326.0" x2="860" y2="326.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="80.0" y="331.0" font-size="12" font-weight="400" text-anchor="end" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">20,000</text>
+<line x1="92" y1="205.0" x2="860" y2="205.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="80.0" y="210.0" font-size="12" font-weight="400" text-anchor="end" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">30,000</text>
+<line x1="92" y1="84.0" x2="860" y2="84.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="80.0" y="89.0" font-size="12" font-weight="400" text-anchor="end" fill="#4B5563" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">40,000</text>
+<line x1="92" y1="84" x2="92" y2="568" stroke="#111827" stroke-width="1.2"/>
+<line x1="92" y1="568" x2="860" y2="568" stroke="#111827" stroke-width="1.2"/>
+<rect x="92.0" y="417.6" width="64.2" height="150.4" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="92.0" y="320.6" width="64.2" height="97.0" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="92.0" y="295.6" width="64.2" height="25.0" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="92.0" y="268.7" width="64.2" height="26.9" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="92.0" y="260.4" width="64.2" height="8.3" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="92.0" y="253.5" width="64.2" height="6.9" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="124.1" y="245.5" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">25,992</text>
+<text x="124.1" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">A</text>
+<rect x="170.2" y="442.9" width="64.2" height="125.1" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="170.2" y="362.2" width="64.2" height="80.7" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="170.2" y="341.5" width="64.2" height="20.8" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="170.2" y="319.1" width="64.2" height="22.4" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="170.2" y="312.2" width="64.2" height="6.9" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="170.2" y="306.0" width="64.2" height="6.2" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="202.3" y="298.0" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">21,656</text>
+<text x="202.3" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">B</text>
+<rect x="248.4" y="369.3" width="64.2" height="198.7" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="248.4" y="240.3" width="64.2" height="129.0" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="248.4" y="205.5" width="64.2" height="34.8" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="248.4" y="169.5" width="64.2" height="36.0" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="248.4" y="157.9" width="64.2" height="11.6" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="248.4" y="148.9" width="64.2" height="9.0" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="280.5" y="140.9" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">34,640</text>
+<text x="280.5" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">C</text>
+<rect x="326.6" y="459.1" width="64.2" height="108.9" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="326.6" y="389.2" width="64.2" height="69.8" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="326.6" y="372.0" width="64.2" height="17.2" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="326.6" y="352.7" width="64.2" height="19.3" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="326.6" y="347.0" width="64.2" height="5.7" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="326.6" y="341.5" width="64.2" height="5.5" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="358.7" y="333.5" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">18,719</text>
+<text x="358.7" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">D</text>
+<rect x="404.8" y="401.1" width="64.2" height="166.9" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="404.8" y="293.1" width="64.2" height="108.0" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="404.8" y="264.6" width="64.2" height="28.6" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="404.8" y="234.5" width="64.2" height="30.1" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="404.8" y="225.0" width="64.2" height="9.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="404.8" y="217.2" width="64.2" height="7.8" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="436.9" y="209.2" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">28,991</text>
+<text x="436.9" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">E</text>
+<rect x="483.0" y="476.1" width="64.2" height="91.9" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="483.0" y="417.7" width="64.2" height="58.4" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="483.0" y="404.3" width="64.2" height="13.3" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="483.0" y="388.3" width="64.2" height="16.0" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="483.0" y="383.9" width="64.2" height="4.4" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="483.0" y="379.3" width="64.2" height="4.6" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="515.1" y="371.3" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">15,595</text>
+<text x="515.1" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">F</text>
+<rect x="561.2" y="383.2" width="64.2" height="184.8" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="561.2" y="263.5" width="64.2" height="119.7" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="561.2" y="231.5" width="64.2" height="31.9" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="561.2" y="198.2" width="64.2" height="33.4" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="561.2" y="187.5" width="64.2" height="10.6" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="561.2" y="178.9" width="64.2" height="8.6" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="593.3" y="170.9" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">32,153</text>
+<text x="593.3" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">G</text>
+<rect x="639.4" y="452.8" width="64.2" height="115.2" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="639.4" y="379.1" width="64.2" height="73.7" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="639.4" y="361.1" width="64.2" height="18.0" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="639.4" y="340.8" width="64.2" height="20.3" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="639.4" y="334.8" width="64.2" height="6.0" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="639.4" y="329.3" width="64.2" height="5.5" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="671.5" y="321.3" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">19,729</text>
+<text x="671.5" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">H</text>
+<rect x="717.6" y="412.9" width="64.2" height="155.1" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="717.6" y="312.9" width="64.2" height="100.0" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="717.6" y="287.1" width="64.2" height="25.8" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="717.6" y="259.3" width="64.2" height="27.7" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="717.6" y="250.7" width="64.2" height="8.6" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="717.6" y="243.5" width="64.2" height="7.2" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="749.7" y="235.5" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">26,819</text>
+<text x="749.7" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">I</text>
+<rect x="795.8" y="431.6" width="64.2" height="136.4" fill="#2563EB" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="795.8" y="344.0" width="64.2" height="87.6" fill="#059669" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="795.8" y="322.1" width="64.2" height="21.9" fill="#DC2626" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="795.8" y="297.8" width="64.2" height="24.2" fill="#7C3AED" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="795.8" y="290.5" width="64.2" height="7.3" fill="#F59E0B" stroke="#FFFFFF" stroke-width="0.6"/>
+<rect x="795.8" y="284.2" width="64.2" height="6.4" fill="#64748B" stroke="#FFFFFF" stroke-width="0.6"/>
+<text x="827.9" y="276.2" font-size="11" font-weight="700" text-anchor="middle" fill="#111827" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">23,458</text>
+<text x="827.9" y="596.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">J</text>
+<rect x="902" y="94" width="14" height="14" rx="2" fill="#2563EB"/>
+<text x="924.0" y="106.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">助餐</text>
+<rect x="902" y="124" width="14" height="14" rx="2" fill="#059669"/>
+<text x="924.0" y="136.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">日间照料</text>
+<rect x="902" y="154" width="14" height="14" rx="2" fill="#DC2626"/>
+<text x="924.0" y="166.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">上门护理</text>
+<rect x="902" y="184" width="14" height="14" rx="2" fill="#7C3AED"/>
+<text x="924.0" y="196.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">康复理疗</text>
+<rect x="902" y="214" width="14" height="14" rx="2" fill="#F59E0B"/>
+<text x="924.0" y="226.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">助浴</text>
+<rect x="902" y="244" width="14" height="14" rx="2" fill="#64748B"/>
+<text x="924.0" y="256.0" font-size="13" font-weight="400" text-anchor="start" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">紧急救助</text>
+<text x="476.0" y="642.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif">小区</text>
+<text x="28.0" y="326.0" font-size="13" font-weight="400" text-anchor="middle" fill="#374151" font-family="Microsoft YaHei, SimHei, Arial, sans-serif" transform="rotate(-90 28 326.0)">实际月服务需求（次/月）</text>
+</svg>

@@ -1,0 +1,13 @@
+﻿elder_type,metric,value,metric_label
+自理,weighted_economic_accessibility,1.0,经济可及性
+半失能,weighted_economic_accessibility,1.0,经济可及性
+失能,weighted_economic_accessibility,1.0,经济可及性
+自理,weighted_geographic_accessibility,0.9107548720156388,地理可及性
+半失能,weighted_geographic_accessibility,0.9115552809822626,地理可及性
+失能,weighted_geographic_accessibility,0.9118458343383608,地理可及性
+自理,weighted_service_accessibility,0.8529514592014301,服务满足可及性
+半失能,weighted_service_accessibility,0.8531526689206994,服务满足可及性
+失能,weighted_service_accessibility,0.8531093953276846,服务满足可及性
+自理,weighted_overall_accessibility,0.9291118993651208,综合可及性
+半失能,weighted_overall_accessibility,0.9294123849708884,综合可及性
+失能,weighted_overall_accessibility,0.9294865688998136,综合可及性

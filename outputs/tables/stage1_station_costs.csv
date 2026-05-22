@@ -1,0 +1,4 @@
+﻿scale,construction_cost_10k,daily_fixed_cost,daily_capacity,subsidy_daily_cap,annualized_construction_cost
+小型,18,2000.0,1000.0,1000,9000.0
+中型,32,3200.0,2000.0,1800,16000.0
+大型,45,4400.0,3000.0,2600,22500.0

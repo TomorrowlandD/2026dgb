@@ -1,0 +1,131 @@
+{
+  "all_passed": true,
+  "search": {
+    "bounds": {
+      "助餐": [
+        6.0,
+        12.0
+      ],
+      "日间照料": [
+        14.0,
+        24.0
+      ],
+      "上门护理": [
+        22.0,
+        36.0
+      ],
+      "康复理疗": [
+        21.0,
+        33.6
+      ],
+      "助浴": [
+        18.0,
+        30.0
+      ],
+      "紧急救助": [
+        0.0,
+        0.0
+      ]
+    },
+    "rough_count": 3125,
+    "rough_candidates": 3125,
+    "rough_feasible": 545,
+    "fine_candidates": 3125,
+    "fine_feasible": 1569,
+    "station_delta_candidates": 27,
+    "station_delta_feasible": 8,
+    "total_evaluated": 6277,
+    "total_feasible": 2122
+  },
+  "checks": [
+    {
+      "item": "每组候选价格都重新计算 S3",
+      "passed": true,
+      "detail": {
+        "total_evaluated": 6277,
+        "s3_range": [
+          0.9999999999993587,
+          0.9999999999997113
+        ]
+      }
+    },
+    {
+      "item": "每组候选价格都重新计算分配结果和有效服务人次",
+      "passed": true,
+      "detail": {
+        "effective_records": 180,
+        "converged": true,
+        "iterations": 2
+      }
+    },
+    {
+      "item": "紧急救助不计政府补贴，但计入直接服务成本",
+      "passed": true,
+      "detail": {
+        "C": 0.0,
+        "D": 0.0,
+        "G": 0.0
+      }
+    },
+    {
+      "item": "政府补贴不超过每日补贴上限折算值",
+      "passed": true,
+      "detail": {
+        "C": {
+          "annual_subsidy": 365000.0,
+          "cap": 365000.0
+        },
+        "D": {
+          "annual_subsidy": 949000.0,
+          "cap": 949000.0
+        },
+        "G": {
+          "annual_subsidy": 949000.0,
+          "cap": 949000.0
+        }
+      }
+    },
+    {
+      "item": "题目口径利润率采用 (ServiceProfit + G - OC) / OC",
+      "passed": true,
+      "detail": {
+        "C": -0.12201185862786058,
+        "D": 0.07324436887861607,
+        "G": 0.07716265776342691
+      }
+    },
+    {
+      "item": "年度净收益另行计入年化建设成本",
+      "passed": true,
+      "detail": {
+        "C": -98068.65679833945,
+        "D": 95130.45641905814,
+        "G": 101423.22836806439
+      }
+    },
+    {
+      "item": "所有入选方案满足 rho <= 8%",
+      "passed": true,
+      "detail": {
+        "C": -0.12201185862786058,
+        "D": 0.07324436887861607,
+        "G": 0.07716265776342691
+      }
+    },
+    {
+      "item": "没有将 rho >= 0 作为硬约束",
+      "passed": true,
+      "detail": "rho lower bound is not enforced"
+    },
+    {
+      "item": "价格满意度不超过 1",
+      "passed": true,
+      "detail": "price score bounded by function"
+    },
+    {
+      "item": "老人支付额使用最终有效服务人次 E_{i,r,k} 计算",
+      "passed": true,
+      "detail": 35647892.65914372
+    }
+  ]
+}

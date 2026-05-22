@@ -1,0 +1,2 @@
+﻿station_count,cr_srv,cr_geo,cr_eff,demand_satisfaction_rate,weighted_satisfaction,construction_cost_10k,converged,iterations,total_enumerated,empty_plans,over_budget_pruned,budget_feasible
+3,0.9999999999986805,0.9999999999986805,0.8530139693713861,0.853148240793354,0.8622144522133145,108.0,True,2,1048576,1,1033368,15207

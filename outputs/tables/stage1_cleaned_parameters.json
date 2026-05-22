@@ -1,0 +1,434 @@
+{
+  "communities": [
+    {
+      "community": "A",
+      "total_population": 3200,
+      "elderly_total": 712,
+      "self_care": 496,
+      "semi_disabled": 152,
+      "disabled": 64,
+      "monthly_income": 3400
+    },
+    {
+      "community": "B",
+      "total_population": 2800,
+      "elderly_total": 608,
+      "self_care": 408,
+      "semi_disabled": 136,
+      "disabled": 64,
+      "monthly_income": 3100
+    },
+    {
+      "community": "C",
+      "total_population": 4100,
+      "elderly_total": 920,
+      "self_care": 632,
+      "semi_disabled": 208,
+      "disabled": 80,
+      "monthly_income": 3800
+    },
+    {
+      "community": "D",
+      "total_population": 2500,
+      "elderly_total": 544,
+      "self_care": 368,
+      "semi_disabled": 120,
+      "disabled": 56,
+      "monthly_income": 2900
+    },
+    {
+      "community": "E",
+      "total_population": 3600,
+      "elderly_total": 784,
+      "self_care": 536,
+      "semi_disabled": 176,
+      "disabled": 72,
+      "monthly_income": 3500
+    },
+    {
+      "community": "F",
+      "total_population": 2200,
+      "elderly_total": 472,
+      "self_care": 328,
+      "semi_disabled": 104,
+      "disabled": 40,
+      "monthly_income": 2700
+    },
+    {
+      "community": "G",
+      "total_population": 3900,
+      "elderly_total": 864,
+      "self_care": 592,
+      "semi_disabled": 192,
+      "disabled": 80,
+      "monthly_income": 3600
+    },
+    {
+      "community": "H",
+      "total_population": 2600,
+      "elderly_total": 568,
+      "self_care": 392,
+      "semi_disabled": 128,
+      "disabled": 48,
+      "monthly_income": 3000
+    },
+    {
+      "community": "I",
+      "total_population": 3400,
+      "elderly_total": 736,
+      "self_care": 504,
+      "semi_disabled": 168,
+      "disabled": 64,
+      "monthly_income": 3300
+    },
+    {
+      "community": "J",
+      "total_population": 3000,
+      "elderly_total": 656,
+      "self_care": 456,
+      "semi_disabled": 144,
+      "disabled": 56,
+      "monthly_income": 3200
+    }
+  ],
+  "transition_probabilities": [
+    {
+      "parameter": "p12",
+      "transition": "自理 → 半失能",
+      "probability": 0.045
+    },
+    {
+      "parameter": "p23",
+      "transition": "半失能 → 失能",
+      "probability": 0.1
+    }
+  ],
+  "service_demand": [
+    {
+      "service": "助餐",
+      "self_care": 14.0,
+      "semi_disabled": 20,
+      "disabled": 22
+    },
+    {
+      "service": "日间照料",
+      "self_care": 8.0,
+      "semi_disabled": 14,
+      "disabled": 18
+    },
+    {
+      "service": "上门护理",
+      "self_care": 0.0,
+      "semi_disabled": 6,
+      "disabled": 12
+    },
+    {
+      "service": "康复理疗",
+      "self_care": 2.0,
+      "semi_disabled": 4,
+      "disabled": 6
+    },
+    {
+      "service": "助浴",
+      "self_care": 0.0,
+      "semi_disabled": 2,
+      "disabled": 4
+    },
+    {
+      "service": "紧急救助",
+      "self_care": 0.15,
+      "semi_disabled": 1,
+      "disabled": 3
+    }
+  ],
+  "service_costs": [
+    {
+      "service": "助餐",
+      "base_price": 10.0,
+      "direct_cost": 8.0,
+      "is_emergency": false
+    },
+    {
+      "service": "日间照料",
+      "base_price": 20.0,
+      "direct_cost": 16.0,
+      "is_emergency": false
+    },
+    {
+      "service": "上门护理",
+      "base_price": 30.0,
+      "direct_cost": 24.0,
+      "is_emergency": false
+    },
+    {
+      "service": "康复理疗",
+      "base_price": 28.0,
+      "direct_cost": 23.0,
+      "is_emergency": false
+    },
+    {
+      "service": "助浴",
+      "base_price": 25.0,
+      "direct_cost": 20.0,
+      "is_emergency": false
+    },
+    {
+      "service": "紧急救助",
+      "base_price": 0.0,
+      "direct_cost": 8.0,
+      "is_emergency": true
+    }
+  ],
+  "consumption_limits": [
+    {
+      "elder_type": "自理",
+      "max_income_share": 0.2
+    },
+    {
+      "elder_type": "半失能",
+      "max_income_share": 0.25
+    },
+    {
+      "elder_type": "失能",
+      "max_income_share": 0.3
+    }
+  ],
+  "station_costs": [
+    {
+      "scale": "小型",
+      "construction_cost_10k": 18,
+      "daily_fixed_cost": 2000.0,
+      "daily_capacity": 1000.0,
+      "subsidy_daily_cap": 1000,
+      "annualized_construction_cost": 9000.0
+    },
+    {
+      "scale": "中型",
+      "construction_cost_10k": 32,
+      "daily_fixed_cost": 3200.0,
+      "daily_capacity": 2000.0,
+      "subsidy_daily_cap": 1800,
+      "annualized_construction_cost": 16000.0
+    },
+    {
+      "scale": "大型",
+      "construction_cost_10k": 45,
+      "daily_fixed_cost": 4400.0,
+      "daily_capacity": 3000.0,
+      "subsidy_daily_cap": 2600,
+      "annualized_construction_cost": 22500.0
+    }
+  ],
+  "distance_matrix": [
+    {
+      "组别": "A",
+      "A": 0,
+      "B": 600,
+      "C": 1200,
+      "D": 900,
+      "E": 1500,
+      "F": 1800,
+      "G": 1300,
+      "H": 700,
+      "I": 1100,
+      "J": 500
+    },
+    {
+      "组别": "B",
+      "A": 600,
+      "B": 0,
+      "C": 800,
+      "D": 500,
+      "E": 1100,
+      "F": 1400,
+      "G": 900,
+      "H": 400,
+      "I": 700,
+      "J": 300
+    },
+    {
+      "组别": "C",
+      "A": 1200,
+      "B": 800,
+      "C": 0,
+      "D": 700,
+      "E": 600,
+      "F": 900,
+      "G": 500,
+      "H": 900,
+      "I": 600,
+      "J": 700
+    },
+    {
+      "组别": "D",
+      "A": 900,
+      "B": 500,
+      "C": 700,
+      "D": 0,
+      "E": 800,
+      "F": 1100,
+      "G": 600,
+      "H": 300,
+      "I": 500,
+      "J": 400
+    },
+    {
+      "组别": "E",
+      "A": 1500,
+      "B": 1100,
+      "C": 600,
+      "D": 800,
+      "E": 0,
+      "F": 500,
+      "G": 400,
+      "H": 1000,
+      "I": 500,
+      "J": 800
+    },
+    {
+      "组别": "F",
+      "A": 1800,
+      "B": 1400,
+      "C": 900,
+      "D": 1100,
+      "E": 500,
+      "F": 0,
+      "G": 500,
+      "H": 1200,
+      "I": 700,
+      "J": 1100
+    },
+    {
+      "组别": "G",
+      "A": 1300,
+      "B": 900,
+      "C": 500,
+      "D": 600,
+      "E": 400,
+      "F": 500,
+      "G": 0,
+      "H": 800,
+      "I": 400,
+      "J": 600
+    },
+    {
+      "组别": "H",
+      "A": 700,
+      "B": 400,
+      "C": 900,
+      "D": 300,
+      "E": 1000,
+      "F": 1200,
+      "G": 800,
+      "H": 0,
+      "I": 600,
+      "J": 300
+    },
+    {
+      "组别": "I",
+      "A": 1100,
+      "B": 700,
+      "C": 600,
+      "D": 500,
+      "E": 500,
+      "F": 700,
+      "G": 400,
+      "H": 600,
+      "I": 0,
+      "J": 400
+    },
+    {
+      "组别": "J",
+      "A": 500,
+      "B": 300,
+      "C": 700,
+      "D": 400,
+      "E": 800,
+      "F": 1100,
+      "G": 600,
+      "H": 300,
+      "I": 400,
+      "J": 0
+    }
+  ],
+  "satisfaction_rules": [
+    {
+      "factor": "distance",
+      "score_name": "S1",
+      "condition": "distance <= 300",
+      "score": 1.0
+    },
+    {
+      "factor": "distance",
+      "score_name": "S1",
+      "condition": "300 < distance <= 500",
+      "score": 0.9
+    },
+    {
+      "factor": "distance",
+      "score_name": "S1",
+      "condition": "500 < distance <= 650",
+      "score": 0.75
+    },
+    {
+      "factor": "distance",
+      "score_name": "S1",
+      "condition": "650 < distance <= 1000",
+      "score": 0.6
+    },
+    {
+      "factor": "response",
+      "score_name": "S2",
+      "condition": "utilization <= 0.60",
+      "score": 1.0
+    },
+    {
+      "factor": "response",
+      "score_name": "S2",
+      "condition": "0.60 < utilization <= 0.75",
+      "score": 0.93
+    },
+    {
+      "factor": "response",
+      "score_name": "S2",
+      "condition": "0.75 < utilization <= 0.85",
+      "score": 0.85
+    },
+    {
+      "factor": "response",
+      "score_name": "S2",
+      "condition": "0.85 < utilization <= 0.95",
+      "score": 0.72
+    },
+    {
+      "factor": "response",
+      "score_name": "S2",
+      "condition": "0.95 < utilization <= 1.00",
+      "score": 0.6
+    },
+    {
+      "factor": "price",
+      "score_name": "S3",
+      "condition": "price <= base_price",
+      "score": 1.0
+    },
+    {
+      "factor": "price",
+      "score_name": "S3",
+      "condition": "base_price < price <= 1.10*base_price",
+      "score": 0.9
+    },
+    {
+      "factor": "price",
+      "score_name": "S3",
+      "condition": "1.10*base_price < price <= 1.20*base_price",
+      "score": 0.75
+    },
+    {
+      "factor": "price",
+      "score_name": "S3",
+      "condition": "price > 1.20*base_price",
+      "score": 0.6
+    }
+  ]
+}

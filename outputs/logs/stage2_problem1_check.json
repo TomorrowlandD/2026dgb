@@ -1,0 +1,495 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "item": "五年递推逐年输出 0 至 5 年",
+      "passed": true,
+      "detail": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "item": "老人数量均非负",
+      "passed": true,
+      "detail": "nonnegative population"
+    },
+    {
+      "item": "老人总数等于三类老人加总",
+      "passed": true,
+      "detail": "elderly_total matches type sum"
+    },
+    {
+      "item": "第 5 年理论需求均非负",
+      "passed": true,
+      "detail": "nonnegative theoretical demand"
+    },
+    {
+      "item": "实际需求不超过理论需求",
+      "passed": true,
+      "detail": "actual demand <= theoretical demand"
+    },
+    {
+      "item": "紧急救助未被消费约束削减",
+      "passed": true,
+      "detail": "emergency actual demand equals theoretical demand"
+    },
+    {
+      "item": "预算不足时收费服务按同一比例削减",
+      "passed": true,
+      "detail": [
+        {
+          "community": "A",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 185552.49845568452,
+          "monthly_budget": 354426.12064568955,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "A",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 123739.2462581446,
+          "monthly_budget": 127954.20841778944,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "A",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 138142.3931635998,
+          "monthly_budget": 116643.41144608593,
+          "reduction_alpha": 0.8443708609271523
+        },
+        {
+          "community": "B",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 155046.56729092437,
+          "monthly_budget": 270024.92056284583,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "B",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 106344.59197647858,
+          "monthly_budget": 100264.06177831009,
+          "reduction_alpha": 0.9428223844282237
+        },
+        {
+          "community": "B",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 128511.96861813517,
+          "monthly_budget": 98937.19438316696,
+          "reduction_alpha": 0.769867549668874
+        },
+        {
+          "community": "C",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 237811.6037407033,
+          "monthly_budget": 507687.6933790296,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "C",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 163298.71165080753,
+          "monthly_budget": 188727.2214942423,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "C",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 180093.45137342616,
+          "monthly_budget": 169955.74053452467,
+          "reduction_alpha": 0.9437086092715231
+        },
+        {
+          "community": "D",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 139370.81598989558,
+          "monthly_budget": 227064.8125678074,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "D",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 94830.5669445874,
+          "monthly_budget": 83640.09858251321,
+          "reduction_alpha": 0.8819951338199513
+        },
+        {
+          "community": "D",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 113266.00306715484,
+          "monthly_budget": 81574.0253877688,
+          "reduction_alpha": 0.7201986754966887
+        },
+        {
+          "community": "E",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 202093.6240387792,
+          "monthly_budget": 397375.10344703775,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "E",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 138415.53385035286,
+          "monthly_budget": 147340.1363978817,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "E",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 156474.53904975223,
+          "monthly_budget": 136008.49834622504,
+          "reduction_alpha": 0.8692052980132451
+        },
+        {
+          "community": "F",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 122829.69040680098,
+          "monthly_budget": 186314.6989316644,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "F",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 83158.91889281721,
+          "monthly_budget": 68287.4333973864,
+          "reduction_alpha": 0.8211678832116789
+        },
+        {
+          "community": "F",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 90518.27985150223,
+          "monthly_budget": 60695.20420506359,
+          "reduction_alpha": 0.6705298013245033
+        },
+        {
+          "community": "G",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 223001.22672174044,
+          "monthly_budget": 451013.7169653177,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "G",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 151942.3096387953,
+          "monthly_budget": 166360.1930351773,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "G",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 172349.2434871181,
+          "monthly_budget": 154087.0719917943,
+          "reduction_alpha": 0.8940397350993377
+        },
+        {
+          "community": "H",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 147218.5930627943,
+          "monthly_budget": 248121.22426313648,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "H",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 100854.3326198523,
+          "monthly_budget": 92020.37647796744,
+          "reduction_alpha": 0.9124087591240877
+        },
+        {
+          "community": "H",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 109793.53406723295,
+          "monthly_budget": 81799.81842757422,
+          "reduction_alpha": 0.7450331125827815
+        },
+        {
+          "community": "I",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 189899.17271078256,
+          "monthly_budget": 352060.2640143722,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "I",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 131070.14675705429,
+          "monthly_budget": 131548.50495689755,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "I",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 144629.12327713676,
+          "monthly_budget": 118528.83447381241,
+          "reduction_alpha": 0.8195364238410596
+        },
+        {
+          "community": "J",
+          "elder_type": "自理",
+          "charged_theoretical_fee": 170742.1214367217,
+          "monthly_budget": 306952.1284255671,
+          "reduction_alpha": 1.0
+        },
+        {
+          "community": "J",
+          "elder_type": "半失能",
+          "charged_theoretical_fee": 115387.48378657042,
+          "monthly_budget": 112299.2542934992,
+          "reduction_alpha": 0.9732360097323601
+        },
+        {
+          "community": "J",
+          "elder_type": "失能",
+          "charged_theoretical_fee": 125982.60794779156,
+          "monthly_budget": 100118.62883268205,
+          "reduction_alpha": 0.794701986754967
+        }
+      ]
+    },
+    {
+      "item": "收费服务实际费用不超过预算，预算不足时使用率接近 1",
+      "passed": true,
+      "detail": [
+        {
+          "community": "A",
+          "elder_type": "自理",
+          "monthly_budget": 354426.12064568955,
+          "charged_actual_fee": 185552.49845568452,
+          "budget_utilization": 0.5235294117647058
+        },
+        {
+          "community": "A",
+          "elder_type": "半失能",
+          "monthly_budget": 127954.20841778944,
+          "charged_actual_fee": 123739.2462581446,
+          "budget_utilization": 0.9670588235294116
+        },
+        {
+          "community": "A",
+          "elder_type": "失能",
+          "monthly_budget": 116643.41144608593,
+          "charged_actual_fee": 116643.41144608593,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "B",
+          "elder_type": "自理",
+          "monthly_budget": 270024.92056284583,
+          "charged_actual_fee": 155046.56729092437,
+          "budget_utilization": 0.5741935483870968
+        },
+        {
+          "community": "B",
+          "elder_type": "半失能",
+          "monthly_budget": 100264.06177831009,
+          "charged_actual_fee": 100264.06177831009,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "B",
+          "elder_type": "失能",
+          "monthly_budget": 98937.19438316696,
+          "charged_actual_fee": 98937.19438316696,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "C",
+          "elder_type": "自理",
+          "monthly_budget": 507687.6933790296,
+          "charged_actual_fee": 237811.6037407033,
+          "budget_utilization": 0.4684210526315789
+        },
+        {
+          "community": "C",
+          "elder_type": "半失能",
+          "monthly_budget": 188727.2214942423,
+          "charged_actual_fee": 163298.71165080753,
+          "budget_utilization": 0.8652631578947368
+        },
+        {
+          "community": "C",
+          "elder_type": "失能",
+          "monthly_budget": 169955.74053452467,
+          "charged_actual_fee": 169955.74053452467,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "D",
+          "elder_type": "自理",
+          "monthly_budget": 227064.8125678074,
+          "charged_actual_fee": 139370.81598989558,
+          "budget_utilization": 0.6137931034482759
+        },
+        {
+          "community": "D",
+          "elder_type": "半失能",
+          "monthly_budget": 83640.09858251321,
+          "charged_actual_fee": 83640.09858251321,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "D",
+          "elder_type": "失能",
+          "monthly_budget": 81574.0253877688,
+          "charged_actual_fee": 81574.0253877688,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "E",
+          "elder_type": "自理",
+          "monthly_budget": 397375.10344703775,
+          "charged_actual_fee": 202093.6240387792,
+          "budget_utilization": 0.5085714285714286
+        },
+        {
+          "community": "E",
+          "elder_type": "半失能",
+          "monthly_budget": 147340.1363978817,
+          "charged_actual_fee": 138415.53385035286,
+          "budget_utilization": 0.9394285714285714
+        },
+        {
+          "community": "E",
+          "elder_type": "失能",
+          "monthly_budget": 136008.49834622504,
+          "charged_actual_fee": 136008.49834622504,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "F",
+          "elder_type": "自理",
+          "monthly_budget": 186314.6989316644,
+          "charged_actual_fee": 122829.69040680098,
+          "budget_utilization": 0.6592592592592592
+        },
+        {
+          "community": "F",
+          "elder_type": "半失能",
+          "monthly_budget": 68287.4333973864,
+          "charged_actual_fee": 68287.4333973864,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "F",
+          "elder_type": "失能",
+          "monthly_budget": 60695.20420506359,
+          "charged_actual_fee": 60695.20420506359,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "G",
+          "elder_type": "自理",
+          "monthly_budget": 451013.7169653177,
+          "charged_actual_fee": 223001.22672174044,
+          "budget_utilization": 0.49444444444444446
+        },
+        {
+          "community": "G",
+          "elder_type": "半失能",
+          "monthly_budget": 166360.1930351773,
+          "charged_actual_fee": 151942.3096387953,
+          "budget_utilization": 0.9133333333333334
+        },
+        {
+          "community": "G",
+          "elder_type": "失能",
+          "monthly_budget": 154087.0719917943,
+          "charged_actual_fee": 154087.0719917943,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "H",
+          "elder_type": "自理",
+          "monthly_budget": 248121.22426313648,
+          "charged_actual_fee": 147218.5930627943,
+          "budget_utilization": 0.5933333333333333
+        },
+        {
+          "community": "H",
+          "elder_type": "半失能",
+          "monthly_budget": 92020.37647796744,
+          "charged_actual_fee": 92020.37647796744,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "H",
+          "elder_type": "失能",
+          "monthly_budget": 81799.81842757422,
+          "charged_actual_fee": 81799.81842757422,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "I",
+          "elder_type": "自理",
+          "monthly_budget": 352060.2640143722,
+          "charged_actual_fee": 189899.17271078256,
+          "budget_utilization": 0.5393939393939393
+        },
+        {
+          "community": "I",
+          "elder_type": "半失能",
+          "monthly_budget": 131548.50495689755,
+          "charged_actual_fee": 131070.14675705429,
+          "budget_utilization": 0.9963636363636363
+        },
+        {
+          "community": "I",
+          "elder_type": "失能",
+          "monthly_budget": 118528.83447381241,
+          "charged_actual_fee": 118528.83447381243,
+          "budget_utilization": 1.0000000000000002
+        },
+        {
+          "community": "J",
+          "elder_type": "自理",
+          "monthly_budget": 306952.1284255671,
+          "charged_actual_fee": 170742.1214367217,
+          "budget_utilization": 0.55625
+        },
+        {
+          "community": "J",
+          "elder_type": "半失能",
+          "monthly_budget": 112299.2542934992,
+          "charged_actual_fee": 112299.2542934992,
+          "budget_utilization": 1.0
+        },
+        {
+          "community": "J",
+          "elder_type": "失能",
+          "monthly_budget": 100118.62883268205,
+          "charged_actual_fee": 100118.62883268205,
+          "budget_utilization": 1.0
+        }
+      ]
+    },
+    {
+      "item": "计算过程保留小数并另有取整展示列",
+      "passed": true,
+      "detail": "rounded columns are present while continuous columns are preserved"
+    },
+    {
+      "item": "第 5 年预测小区数为 10",
+      "passed": true,
+      "detail": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    }
+  ]
+}

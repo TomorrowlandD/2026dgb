@@ -1,0 +1,142 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "item": "10 个小区编号完整且顺序一致",
+      "passed": true,
+      "detail": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    },
+    {
+      "item": "三类老人初始人数加总等于 60+ 老人数",
+      "passed": true,
+      "detail": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "G": 0,
+        "H": 0,
+        "I": 0,
+        "J": 0
+      }
+    },
+    {
+      "item": "距离矩阵为 10 x 10",
+      "passed": true,
+      "detail": [
+        10,
+        10
+      ]
+    },
+    {
+      "item": "距离矩阵主对角线为 0",
+      "passed": true,
+      "detail": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "item": "距离矩阵对称",
+      "passed": true,
+      "detail": "symmetric"
+    },
+    {
+      "item": "服务项目为 6 项",
+      "passed": true,
+      "detail": [
+        "助餐",
+        "日间照料",
+        "上门护理",
+        "康复理疗",
+        "助浴",
+        "紧急救助"
+      ]
+    },
+    {
+      "item": "紧急救助价格为 0",
+      "passed": true,
+      "detail": 0.0
+    },
+    {
+      "item": "消费上限比例正确",
+      "passed": true,
+      "detail": [
+        {
+          "elder_type": "自理",
+          "max_income_share": 0.2
+        },
+        {
+          "elder_type": "半失能",
+          "max_income_share": 0.25
+        },
+        {
+          "elder_type": "失能",
+          "max_income_share": 0.3
+        }
+      ]
+    },
+    {
+      "item": "建设成本、运营成本、容量均非负",
+      "passed": true,
+      "detail": [
+        {
+          "scale": "小型",
+          "construction_cost_10k": 18,
+          "daily_fixed_cost": 2000.0,
+          "daily_capacity": 1000.0
+        },
+        {
+          "scale": "中型",
+          "construction_cost_10k": 32,
+          "daily_fixed_cost": 3200.0,
+          "daily_capacity": 2000.0
+        },
+        {
+          "scale": "大型",
+          "construction_cost_10k": 45,
+          "daily_fixed_cost": 4400.0,
+          "daily_capacity": 3000.0
+        }
+      ]
+    },
+    {
+      "item": "需求、成本、转移概率和满意度规则无异常空值",
+      "passed": true,
+      "detail": {
+        "service_demand_nulls": 0,
+        "service_costs_nulls": 0,
+        "consumption_limits_nulls": 0,
+        "station_costs_nulls": 0,
+        "transition_nulls": 0,
+        "satisfaction_nulls": 0
+      }
+    },
+    {
+      "item": "所有核心数值字段非负",
+      "passed": true,
+      "detail": "nonnegative core numeric fields"
+    }
+  ]
+}

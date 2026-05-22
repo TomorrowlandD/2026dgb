@@ -1,0 +1,3 @@
+﻿parameter,transition,probability
+p12,自理 → 半失能,0.045
+p23,半失能 → 失能,0.1

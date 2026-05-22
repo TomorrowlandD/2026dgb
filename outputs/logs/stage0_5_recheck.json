@@ -1,0 +1,289 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "item": "阶段 0-5 必要日志和结果文件存在",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "item": "阶段 0 日志显示已通过",
+      "passed": true,
+      "detail": "stage0_check.md"
+    },
+    {
+      "item": "stage1_data_check.json all_passed=true",
+      "passed": true,
+      "detail": "stage1_data_check.json"
+    },
+    {
+      "item": "stage2_problem1_check.json all_passed=true",
+      "passed": true,
+      "detail": "stage2_problem1_check.json"
+    },
+    {
+      "item": "stage3_problem2_check.json all_passed=true",
+      "passed": true,
+      "detail": "stage3_problem2_check.json"
+    },
+    {
+      "item": "stage4_problem3_check.json all_passed=true",
+      "passed": true,
+      "detail": "stage4_problem3_check.json"
+    },
+    {
+      "item": "stage5_problem4_check.json all_passed=true",
+      "passed": true,
+      "detail": "stage5_problem4_check.json"
+    },
+    {
+      "item": "阶段 1 小区顺序保持 A-J",
+      "passed": true,
+      "detail": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    },
+    {
+      "item": "阶段 1 三类老人初始人数等于 60+ 人数",
+      "passed": true,
+      "detail": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "item": "阶段 2 实际需求不超过理论需求",
+      "passed": true,
+      "detail": "actual_demand <= theoretical_demand"
+    },
+    {
+      "item": "阶段 2 紧急救助未被消费约束削减",
+      "passed": true,
+      "detail": "emergency demand equality"
+    },
+    {
+      "item": "阶段 3 最优方案建设成本不超过 120 万元",
+      "passed": true,
+      "detail": 108.0
+    },
+    {
+      "item": "阶段 3 所有分配距离不超过 1000 米",
+      "passed": true,
+      "detail": [
+        {
+          "community": "A",
+          "assigned_station": "D",
+          "distance": 900.0
+        },
+        {
+          "community": "B",
+          "assigned_station": "D",
+          "distance": 500.0
+        },
+        {
+          "community": "C",
+          "assigned_station": "C",
+          "distance": 0.0
+        },
+        {
+          "community": "D",
+          "assigned_station": "D",
+          "distance": 0.0
+        },
+        {
+          "community": "E",
+          "assigned_station": "G",
+          "distance": 400.0
+        },
+        {
+          "community": "F",
+          "assigned_station": "G",
+          "distance": 500.0
+        },
+        {
+          "community": "G",
+          "assigned_station": "G",
+          "distance": 0.0
+        },
+        {
+          "community": "H",
+          "assigned_station": "D",
+          "distance": 300.0
+        },
+        {
+          "community": "I",
+          "assigned_station": "G",
+          "distance": 400.0
+        },
+        {
+          "community": "J",
+          "assigned_station": "D",
+          "distance": 400.0
+        }
+      ]
+    },
+    {
+      "item": "阶段 3 覆盖率指标在 [0,1] 内",
+      "passed": true,
+      "detail": {
+        "cr_srv": 0.9999999999986804,
+        "cr_eff": 0.8530139693713861
+      }
+    },
+    {
+      "item": "阶段 3 E_{i,r,k} 汇总等于 E_{i,k}",
+      "passed": true,
+      "detail": 1.8189894035458565e-12
+    },
+    {
+      "item": "阶段 4 紧急救助价格为 0",
+      "passed": true,
+      "detail": [
+        {
+          "station": "C",
+          "price": 0.0
+        },
+        {
+          "station": "D",
+          "price": 0.0
+        },
+        {
+          "station": "G",
+          "price": 0.0
+        }
+      ]
+    },
+    {
+      "item": "阶段 4 政府补贴不超过上限",
+      "passed": true,
+      "detail": [
+        {
+          "station": "C",
+          "annual_subsidy": 365000.0,
+          "annual_subsidy_cap": 365000.0
+        },
+        {
+          "station": "D",
+          "annual_subsidy": 949000.0,
+          "annual_subsidy_cap": 949000.0
+        },
+        {
+          "station": "G",
+          "annual_subsidy": 949000.0,
+          "annual_subsidy_cap": 949000.0
+        }
+      ]
+    },
+    {
+      "item": "阶段 4 所有站点满足 rho <= 8%",
+      "passed": true,
+      "detail": [
+        {
+          "station": "C",
+          "topic_profit_rate": -0.1220118586278605
+        },
+        {
+          "station": "D",
+          "topic_profit_rate": 0.073244368878616
+        },
+        {
+          "station": "G",
+          "topic_profit_rate": 0.0771626577634269
+        }
+      ]
+    },
+    {
+      "item": "阶段 4 老人支付额等于站点年收入合计",
+      "passed": true,
+      "detail": {
+        "annual_elder_pay": 35647892.65914372,
+        "annual_revenue_sum": 35647892.65914372
+      }
+    },
+    {
+      "item": "阶段 5 输出 S0-S4 五个情景",
+      "passed": true,
+      "detail": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "item": "阶段 5 所有情景满足 rho <= 8%",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "max_topic_profit_rate": 0.077162657763428
+        },
+        {
+          "scenario": "S1",
+          "max_topic_profit_rate": 0.0784890065257656
+        },
+        {
+          "scenario": "S2",
+          "max_topic_profit_rate": 0.078137825006128
+        },
+        {
+          "scenario": "S3",
+          "max_topic_profit_rate": 0.0786469639097947
+        },
+        {
+          "scenario": "S4",
+          "max_topic_profit_rate": 0.0787679778753797
+        }
+      ]
+    },
+    {
+      "item": "阶段 5 S4 使用 140 万元预算",
+      "passed": true,
+      "detail": 140.0
+    },
+    {
+      "item": "阶段 5 方案变化度以 S0 为基准",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "composite_variation": 0.0
+        },
+        {
+          "scenario": "S1",
+          "composite_variation": 0.2132853737325435
+        },
+        {
+          "scenario": "S2",
+          "composite_variation": 1.665625495190092
+        },
+        {
+          "scenario": "S3",
+          "composite_variation": 2.022656610583289
+        },
+        {
+          "scenario": "S4",
+          "composite_variation": 1.0640727638190834
+        }
+      ]
+    }
+  ]
+}

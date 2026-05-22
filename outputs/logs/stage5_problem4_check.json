@@ -1,0 +1,190 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "item": "每个情景均重新完整求解",
+      "passed": true,
+      "detail": {
+        "S0": 6277,
+        "S1": 6277,
+        "S2": 3395,
+        "S3": 3557,
+        "S4": 4706
+      }
+    },
+    {
+      "item": "每个情景均输出站点数量、位置和规模",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "station_count": 3,
+          "stations": "C:小型;D:大型;G:大型"
+        },
+        {
+          "scenario": "S1",
+          "station_count": 3,
+          "stations": "C:小型;E:大型;H:大型"
+        },
+        {
+          "scenario": "S2",
+          "station_count": 3,
+          "stations": "C:小型;D:大型;G:大型"
+        },
+        {
+          "scenario": "S3",
+          "station_count": 3,
+          "stations": "C:小型;D:大型;G:大型"
+        },
+        {
+          "scenario": "S4",
+          "station_count": 4,
+          "stations": "A:大型;E:中型;G:大型;I:小型"
+        }
+      ]
+    },
+    {
+      "item": "每个情景均输出定价、补贴、覆盖率、满意度、利润率",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "price_summary": "助餐:8.00;日间照料:16.00;上门护理:30.00;康复理疗:28.00;助浴:20.00",
+          "annual_subsidy": 2263000.0,
+          "cr_srv": 0.9999999999986805,
+          "problem3_weighted_satisfaction": 0.8622144522131109,
+          "max_topic_profit_rate": 0.07716265776342807
+        },
+        {
+          "scenario": "S1",
+          "price_summary": "助餐:7.00;日间照料:18.00;上门护理:29.00;康复理疗:27.00;助浴:21.00",
+          "annual_subsidy": 2263000.0,
+          "cr_srv": 0.9999999999987433,
+          "problem3_weighted_satisfaction": 0.8638927738914924,
+          "max_topic_profit_rate": 0.07848900652576565
+        },
+        {
+          "scenario": "S2",
+          "price_summary": "助餐:11.40-12.00;日间照料:14.00-14.70;上门护理:22.00-23.10;康复理疗:21.00-22.05;助浴:18.00-18.90",
+          "annual_subsidy": 1314000.0,
+          "cr_srv": 0.9999999999986805,
+          "problem3_weighted_satisfaction": 0.9128259198873531,
+          "max_topic_profit_rate": 0.07813782500612801
+        },
+        {
+          "scenario": "S3",
+          "price_summary": "助餐:6.00-6.30;日间照料:22.80-24.00;上门护理:22.00-23.10;康复理疗:21.00-23.10;助浴:18.00-18.90",
+          "annual_subsidy": 1314000.0,
+          "cr_srv": 0.9999999999986805,
+          "problem3_weighted_satisfaction": 0.9336157689082183,
+          "max_topic_profit_rate": 0.07864696390979471
+        },
+        {
+          "scenario": "S4",
+          "price_summary": "助餐:10.00;日间照料:16.00;上门护理:23.00;康复理疗:22.00;助浴:24.00",
+          "annual_subsidy": 2555000.0,
+          "cr_srv": 0.9999999999986805,
+          "problem3_weighted_satisfaction": 0.9768764568749643,
+          "max_topic_profit_rate": 0.0787679778753797
+        }
+      ]
+    },
+    {
+      "item": "成本增加情景若选址不变，已解释原因",
+      "passed": true,
+      "detail": "S3 仅改变日固定管理成本；问题 2 主排序不直接使用固定管理成本，若站点方案不变属于预期。"
+    },
+    {
+      "item": "预算调整情景使用 140 万元建设预算",
+      "passed": true,
+      "detail": 140.0
+    },
+    {
+      "item": "方案变化度指标公式与文档一致",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "description": "基准方案",
+          "v_loc": 0.0,
+          "v_size": 0.0,
+          "v_cov": 0.0,
+          "v_sat": 0.0,
+          "v_profit": 0.0,
+          "v_subsidy": 0.0,
+          "composite_variation": 0.0
+        },
+        {
+          "scenario": "S1",
+          "description": "60+老人年增长率调整为8%",
+          "v_loc": 0.8,
+          "v_size": 0.0,
+          "v_cov": 6.283862256548055e-14,
+          "v_sat": 0.0019465246199578709,
+          "v_profit": 0.12896068808539332,
+          "v_subsidy": 0.0,
+          "composite_variation": 0.2132853737325435
+        },
+        {
+          "scenario": "S2",
+          "description": "自理到半失能5.5%，半失能到失能9.5%",
+          "v_loc": 0.0,
+          "v_size": 0.0,
+          "v_cov": 0.0,
+          "v_sat": 0.058699395443140574,
+          "v_profit": 16.119501322304963,
+          "v_subsidy": 0.4193548387096756,
+          "composite_variation": 1.665625495190092
+        },
+        {
+          "scenario": "S3",
+          "description": "日固定管理成本增加20%",
+          "v_loc": 0.0,
+          "v_size": 0.0,
+          "v_cov": 0.0,
+          "v_sat": 0.08281155075018837,
+          "v_profit": 19.641588165622835,
+          "v_subsidy": 0.4193548387096756,
+          "composite_variation": 2.022656610583289
+        },
+        {
+          "scenario": "S4",
+          "description": "总建设预算调整为140万元",
+          "v_loc": 0.8333333333333334,
+          "v_size": 0.0,
+          "v_cov": 0.0,
+          "v_sat": 0.13298548062803514,
+          "v_profit": 8.162391085536914,
+          "v_subsidy": 0.12903225806451557,
+          "composite_variation": 1.0640727638190834
+        }
+      ]
+    },
+    {
+      "item": "所有情景定价方案满足 rho <= 8%",
+      "passed": true,
+      "detail": [
+        {
+          "scenario": "S0",
+          "max_topic_profit_rate": 0.07716265776342807
+        },
+        {
+          "scenario": "S1",
+          "max_topic_profit_rate": 0.07848900652576565
+        },
+        {
+          "scenario": "S2",
+          "max_topic_profit_rate": 0.07813782500612801
+        },
+        {
+          "scenario": "S3",
+          "max_topic_profit_rate": 0.07864696390979471
+        },
+        {
+          "scenario": "S4",
+          "max_topic_profit_rate": 0.0787679778753797
+        }
+      ]
+    }
+  ]
+}

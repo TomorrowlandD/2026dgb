@@ -1,0 +1,124 @@
+{
+  "all_passed": true,
+  "enumeration_stats": {
+    "total_enumerated": 1048576,
+    "empty_plans": 1,
+    "over_budget_pruned": 1033368,
+    "budget_feasible": 15207
+  },
+  "checks": [
+    {
+      "item": "枚举方案总数为 4^10，并记录剪枝数量",
+      "passed": true,
+      "detail": {
+        "total_enumerated": 1048576,
+        "empty_plans": 1,
+        "over_budget_pruned": 1033368,
+        "budget_feasible": 15207
+      }
+    },
+    {
+      "item": "最优方案建设成本不超过 120 万元",
+      "passed": true,
+      "detail": 108.0
+    },
+    {
+      "item": "所有被分配小区均有服务站",
+      "passed": true,
+      "detail": {
+        "A": "D",
+        "B": "D",
+        "C": "C",
+        "D": "D",
+        "E": "G",
+        "F": "G",
+        "G": "G",
+        "H": "D",
+        "I": "G",
+        "J": "D"
+      }
+    },
+    {
+      "item": "每个被分配小区与服务站距离不超过 1000 米",
+      "passed": true,
+      "detail": {
+        "A": 900.0,
+        "B": 500.0,
+        "C": 0.0,
+        "D": 0.0,
+        "E": 400.0,
+        "F": 500.0,
+        "G": 0.0,
+        "H": 300.0,
+        "I": 400.0,
+        "J": 400.0
+      }
+    },
+    {
+      "item": "容量可得系数在 [0, 1] 内",
+      "passed": true,
+      "detail": {
+        "C": 0.9978282844997448,
+        "D": 0.9767023780526362,
+        "G": 1.0
+      }
+    },
+    {
+      "item": "服务站利用率非负且不超过 1",
+      "passed": true,
+      "detail": {
+        "C": 0.9999999999999455,
+        "D": 0.9999999999999815,
+        "G": 0.983053632926593
+      }
+    },
+    {
+      "item": "主覆盖率使用 CR_srv 且在 [0, 1] 内",
+      "passed": true,
+      "detail": 0.9999999999986805
+    },
+    {
+      "item": "保留了 E_{i,r,k} 以支持三类老人可及性",
+      "passed": true,
+      "detail": 180
+    },
+    {
+      "item": "迭代收敛或记录最大迭代近似解",
+      "passed": true,
+      "detail": {
+        "converged": true,
+        "iterations": 2
+      }
+    },
+    {
+      "item": "预计年度利润使用基准价格测算",
+      "passed": true,
+      "detail": {
+        "C": {
+          "annual_revenue_base": 6017361.112442711,
+          "annual_direct_cost": 4895591.165234286,
+          "annual_operating_cost": 730000.0,
+          "annualized_construction_cost": 9000.0,
+          "annual_net_profit_base_no_subsidy": 382769.94720842503,
+          "topic_profit_rate_base_no_subsidy": 0.5366711605594789
+        },
+        "D": {
+          "annual_revenue_base": 17879135.603456672,
+          "annual_direct_cost": 14561387.795247858,
+          "annual_operating_cost": 1606000.0,
+          "annualized_construction_cost": 22500.0,
+          "annual_net_profit_base_no_subsidy": 1689247.808208814,
+          "topic_profit_rate_base_no_subsidy": 1.065845459656789
+        },
+        "G": {
+          "annual_revenue_base": 17638549.61028278,
+          "annual_direct_cost": 14359428.670675991,
+          "annual_operating_cost": 1606000.0,
+          "annualized_construction_cost": 22500.0,
+          "annual_net_profit_base_no_subsidy": 1650620.9396067876,
+          "topic_profit_rate_base_no_subsidy": 1.0417938602781924
+        }
+      }
+    }
+  ]
+}

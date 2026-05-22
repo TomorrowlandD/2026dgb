@@ -1,0 +1,14 @@
+﻿factor,score_name,condition,score
+distance,S1,distance <= 300,1.0
+distance,S1,300 < distance <= 500,0.9
+distance,S1,500 < distance <= 650,0.75
+distance,S1,650 < distance <= 1000,0.6
+response,S2,utilization <= 0.60,1.0
+response,S2,0.60 < utilization <= 0.75,0.93
+response,S2,0.75 < utilization <= 0.85,0.85
+response,S2,0.85 < utilization <= 0.95,0.72
+response,S2,0.95 < utilization <= 1.00,0.6
+price,S3,price <= base_price,1.0
+price,S3,base_price < price <= 1.10*base_price,0.9
+price,S3,1.10*base_price < price <= 1.20*base_price,0.75
+price,S3,price > 1.20*base_price,0.6

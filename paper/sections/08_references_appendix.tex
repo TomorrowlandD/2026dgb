@@ -1,8 +1,131 @@
 \section*{参考文献}
 
-【待补充：步骤 13 整理真实参考文献。】
+\begin{thebibliography}{9}
+  \bibitem{problem2026}
+  电工杯全国大学生数学建模竞赛组委会，B题：嵌入式社区养老服务站的建设与优化问题，赛题文件，2026.
+
+  \bibitem{template2026}
+  电工杯全国大学生数学建模竞赛组委会，电工杯全国大学生数学建模竞赛论文Word模板，论文格式模板，2026.
+\end{thebibliography}
 
 \appendix
-\section{附录}
+\section{支撑材料与输出文件索引}
 
-【待补充：步骤 13 整理支撑材料、核心代码说明、运行顺序和复现说明。】
+本文模型求解和论文撰写均以赛题文件、五个附件数据表、阶段性检查日志和程序输出结果为依据。为便于复核，主要支撑材料按数据来源、建模方案、结果表格、结果图形和检查记录分类列示如下。
+
+\begin{table}[H]
+  \centering
+  \caption{输入数据与说明材料索引}
+  \label{tab:appendix-input-index}
+  \small
+  \renewcommand{\arraystretch}{1.18}
+  \begin{tabular}{p{0.30\textwidth}p{0.48\textwidth}p{0.14\textwidth}}
+    \toprule
+    材料类别 & 文件或目录 & 用途说明 \\
+    \midrule
+    赛题文件 & \texttt{docs/B题：嵌入式社区养老服务站的建设与优化问题.pdf} & 明确四个问题、约束条件和附件含义 \\
+    格式模板 & \texttt{docs/“电工杯”全国大学生数学建模竞赛论文Word模板.pdf} & 确定论文组织顺序和版式要求 \\
+    原始附件数据 & \texttt{data/附件1}--\texttt{附件5} & 提供人口、需求、成本、距离和满意度规则 \\
+    建模方案 & \texttt{docs/revised\_modeling\_plan.md} & 固定四个问题的主模型和求解口径 \\
+    严谨性说明 & \texttt{docs/final\_revision\_notes.md} & 说明最终口径修订要求 \\
+    一致性审查 & \texttt{docs/final\_consistency\_audit.md} & 复核阶段 0--5 口径一致性 \\
+    关键结果摘要 & \texttt{docs/paper\_key\_results\_summary.md} & 支撑正文结果分析与摘要撰写 \\
+    图表索引 & \texttt{outputs/figures/figure\_index.md} & 记录七张核心图的数据来源和用途 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{核心程序与运行顺序}
+
+程序采用分阶段脚本组织，所有中间表、最终结果表和论文图形均输出到 \texttt{outputs/} 目录。完整复现时应先完成数据清洗，再依次运行问题一至问题四的求解脚本，最后运行图表生成脚本。核心程序及其作用见表 \ref{tab:appendix-code-index}。
+
+\begin{table}[H]
+  \centering
+  \caption{核心程序文件与功能说明}
+  \label{tab:appendix-code-index}
+  \small
+  \renewcommand{\arraystretch}{1.18}
+  \begin{tabular}{p{0.34\textwidth}p{0.50\textwidth}p{0.10\textwidth}}
+    \toprule
+    程序文件 & 主要功能 & 对应阶段 \\
+    \midrule
+    \texttt{src/data\_loader.py} & 读取五个 Excel 附件，统一字段、单位和参数表 & 阶段 1 \\
+    \texttt{src/run\_stage2\_problem1.py} & 求解老人数量预测、理论需求和消费约束后需求 & 阶段 2 \\
+    \texttt{src/run\_stage3\_problem2.py} & 枚举服务站位置与规模，计算分配、覆盖率和利用率 & 阶段 3 \\
+    \texttt{src/run\_stage4\_problem3.py} & 搜索定价方案，核算补贴、利润率、年度净收益和可及性 & 阶段 4 \\
+    \texttt{src/run\_stage5\_problem4.py} & 对 S0--S4 情景完整重求解并计算变化度 & 阶段 5 \\
+    \texttt{src/run\_stage6\_1\_figures.py} & 生成问题一核心图和论文表格 & 阶段 6.1 \\
+    \texttt{src/run\_stage6\_2\_problem2\_figures.py} & 生成问题二站点分配图和利用率图 & 阶段 6.2 \\
+    \texttt{src/run\_stage6\_3\_problem3\_figures.py} & 生成价格对比图和可及性对比图 & 阶段 6.3 \\
+    \texttt{src/run\_stage6\_4\_problem4\_figures.py} & 生成灵敏度情景指标对比图 & 阶段 6.4 \\
+    \texttt{src/validate\_stage0\_5.py} & 对阶段 0--5 的关键口径和结果一致性进行复核 & 复核 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+建议复现运行顺序如下：
+\begin{enumerate}
+  \item 运行数据读取与清洗程序，生成 \texttt{outputs/tables/stage1\_*} 和 \texttt{stage1\_cleaned\_parameters.json}。
+  \item 依次运行问题一、问题二、问题三和问题四求解脚本，生成 \texttt{problem1\_*}、\texttt{problem2\_*}、\texttt{problem3\_*} 和 \texttt{problem4\_*} 结果表。
+  \item 运行阶段 6 图表脚本，生成七张核心图和论文用汇总表。
+  \item 根据 \texttt{outputs/logs/} 中的阶段检查记录复核模型口径、约束满足情况和图表数据来源。
+\end{enumerate}
+
+\section{结果表格与图形文件}
+
+本文正文中的数值结论均来自 \texttt{outputs/tables/} 下的结果表。表 \ref{tab:appendix-table-index} 给出核心输出表与对应问题。
+
+\begin{table}[H]
+  \centering
+  \caption{核心结果表索引}
+  \label{tab:appendix-table-index}
+  \small
+  \renewcommand{\arraystretch}{1.18}
+  \begin{tabular}{p{0.36\textwidth}p{0.44\textwidth}p{0.12\textwidth}}
+    \toprule
+    结果表 & 内容说明 & 对应问题 \\
+    \midrule
+    \texttt{problem1\_population\_forecast.csv} & 五年三类老人数量预测 & 问题一 \\
+    \texttt{problem1\_theoretical\_demand.csv} & 第 5 年末理论服务需求 & 问题一 \\
+    \texttt{problem1\_actual\_demand.csv} & 消费约束修正后的实际需求 & 问题一 \\
+    \texttt{problem1\_budget\_check.csv} & 消费预算、需求满足率和约束检查 & 问题一 \\
+    \texttt{problem2\_best\_station\_plan.csv} & 最优服务站位置、规模和建设成本 & 问题二 \\
+    \texttt{problem2\_assignment.csv} & 小区到服务站的分配关系 & 问题二 \\
+    \texttt{problem2\_station\_utilization.csv} & 服务站利用率与容量可得系数 & 问题二 \\
+    \texttt{problem2\_coverage\_summary.csv} & 覆盖率、满意度和需求满足率汇总 & 问题二 \\
+    \texttt{problem3\_prices.csv} & 优化价格和候选定价信息 & 问题三 \\
+    \texttt{problem3\_station\_finance.csv} & 各服务站收入、成本、补贴、利润率和净收益 & 问题三 \\
+    \texttt{problem3\_accessibility.csv} & 三类老人经济、地理、服务满足和综合可及性 & 问题三 \\
+    \texttt{problem4\_scenario\_metrics.csv} & S0--S4 情景主要指标 & 问题四 \\
+    \texttt{problem4\_scenario\_station\_plans.csv} & 各情景站点位置与规模方案 & 问题四 \\
+    \texttt{problem4\_variation\_indices.csv} & 各情景方案变化度指标 & 问题四 \\
+    \texttt{problem4\_robustness\_summary.csv} & 鲁棒性评价汇总 & 问题四 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+正文共使用七张核心图，均由阶段 6 脚本根据结果表绘制，文件位于 \texttt{outputs/figures/}。图形文件包括：
+\begin{enumerate}
+  \item \texttt{fig1\_population\_forecast.png}：三类老人五年预测趋势图。
+  \item \texttt{fig2\_community\_demand\_stack.png}：第 5 年各小区实际服务需求结构图。
+  \item \texttt{fig3\_station\_assignment.png}：最优服务站--小区网络分配示意图。
+  \item \texttt{fig4\_station\_utilization\_capacity.png}：各服务站利用率与容量可得系数图。
+  \item \texttt{fig5\_price\_vs\_baseline.png}：优化价格与基准价格对比图。
+  \item \texttt{fig6\_accessibility\_by\_elder\_type.png}：三类老人可及性对比图。
+  \item \texttt{fig7\_scenario\_metrics\_compare.png}：灵敏度情景主要指标对比图。
+\end{enumerate}
+
+\section{检查日志与复现说明}
+
+阶段检查日志位于 \texttt{outputs/logs/}。其中，\texttt{stage1\_data\_check.md} 对清洗后参数完整性进行检查；\texttt{stage2\_problem1\_check.md} 至 \texttt{stage5\_problem4\_check.md} 分别记录问题一至问题四的求解检查；\texttt{stage6\_6\_final\_check.md} 记录核心图表生成后的总检查。论文写作阶段的检查日志以 \texttt{paper\_step*} 命名，用于记录各章节是否遵守最终口径。
+
+复现本文主要数值结果时，应保持以下口径不变：
+\begin{enumerate}
+  \item 收费服务消费约束采用等比例削减，紧急救助保持公益免费。
+  \item 问题二排序目标为覆盖率、有效覆盖率、加权满意度、需求满足率和建设成本，不使用年度利润排序。
+  \item 问题三对每组候选价格重新计算价格满意度、分配、有效服务人次、补贴、题目口径利润率、年度净收益和可及性。
+  \item 题目口径利润率只设置上限约束 $\rho_j^{topic}\le8\%$，不强制 $\rho_j^{topic}\ge0$。
+  \item 问题四中 S0--S4 每个情景均重新执行需求预测、选址和定价补贴求解。
+\end{enumerate}
+
+若需要重新生成论文 PDF，可在 \texttt{paper/} 目录下编译 \texttt{main.tex}。论文图形由 \texttt{main.tex} 通过 \texttt{outputs/figures/} 中的 PNG 文件引用；若重新运行图表脚本导致图片文件更新，应同步核对正文中的图题、编号和结果解释是否仍与 \texttt{figure\_index.md} 一致。

@@ -284,8 +284,340 @@
 
 \subsection{问题三模型的建立与求解}
 
-【待补充：步骤 7 撰写补贴导向定价、利润率、净收益和可及性模型。】
+\subsubsection{统一服务价格与候选价格构造}
+
+问题三在问题二最优站点位置、规模和服务能力参数已确定的基础上，进一步确定服务价格与政府补贴，并评价三类老人的服务可及性。为使补贴政策和服务价格具有统一解释口径，本文主模型对同一服务项目采用统一指导价。记服务项目 $k$ 在服务站 $j$ 的实际价格为 $p_{j,k}$，则主模型满足
+\begin{equation}
+  p_{j,k}=p_k,
+  \qquad j\in\{C,D,G\}.
+  \label{eq:q3-uniform-price}
+\end{equation}
+紧急救助保持公益免费，故有
+\begin{equation}
+  p_{\text{紧急救助}}=0.
+  \label{eq:q3-emergency-price}
+\end{equation}
+式 \eqref{eq:q3-emergency-price} 只约束老人支付价格，并不删除紧急救助对应的服务人次、直接支出和容量占用。若允许每个站点对每项服务独立定价，则价格组合数会随站点数和收费服务数迅速放大，不利于结果复核；因此本文仅将站点整体小幅浮动作为对照搜索，不将每站每服务独立浮动作为主模型。
+
+对非紧急救助服务，记 $b_k$ 为基准价格，$c_k$ 为单次直接支出。候选统一价格由区间
+\begin{equation}
+  p_k^{\min}=\max(0,c_k-2),
+  \qquad
+  p_k^{\max}=1.2b_k
+  \label{eq:q3-price-range}
+\end{equation}
+生成。模型先在式 \eqref{eq:q3-price-range} 上进行粗网格搜索，筛除违反利润率上限的价格组合；再围绕较优价格组合执行细网格局部搜索，并与站点整体浮动对照方案比较。该流程既保留统一指导价的政策可解释性，也避免将价格优化简化为孤立的财务调参。
+
+\subsubsection{候选价格反馈闭环}
+
+问题三的价格改变会影响价格满意度，继而改变小区分配和最终有效服务人次。设候选价格向量为 $\boldsymbol p$，其在小区 $i$ 上产生的价格满意度记为 $S_{3,i}(\boldsymbol p)$。在问题二距离满意度和响应满意度口径不变的基础上，候选价格下的小区--站点综合满意度为
+\begin{equation}
+  S_{ij}(\boldsymbol p)
+  =
+  0.2S_{1,ij}
+  +0.3S_{2,j}
+  +0.5S_{3,i}(\boldsymbol p).
+  \label{eq:q3-price-satisfaction-feedback}
+\end{equation}
+小区在服务半径内按综合满意度重新选择服务站，满意度折减后、容量调整前的类型层有效服务人次为
+\begin{equation}
+  E_{i,r,k}^{pre}(\boldsymbol p)
+  =
+  D_{i,r,k}S_{i,j^*(i)}(\boldsymbol p).
+  \label{eq:q3-effective-pre-feedback}
+\end{equation}
+随后按站点容量重新计算容量可得系数 $\gamma_j(\boldsymbol p)$，得到最终有效服务人次
+\begin{equation}
+  E_{i,r,k}(\boldsymbol p)
+  =
+  \gamma_{j^*(i)}(\boldsymbol p)
+  E_{i,r,k}^{pre}(\boldsymbol p).
+  \label{eq:q3-effective-final-feedback}
+\end{equation}
+站点利用率由式 \eqref{eq:q3-effective-final-feedback} 重新汇总后更新响应满意度 $S_{2,j}$，再反馈到式 \eqref{eq:q3-price-satisfaction-feedback}。因此，每组候选价格均执行
+\begin{equation}
+  \boldsymbol p
+  \rightarrow
+  S_3
+  \rightarrow
+  S_{ij}
+  \rightarrow
+  j^*(i)
+  \rightarrow
+  E_{i,r,k}^{pre}
+  \rightarrow
+  \gamma_j
+  \rightarrow
+  E_{i,r,k}
+  \rightarrow
+  (u_j,S_{2,j})
+  \label{eq:q3-feedback-chain}
+\end{equation}
+的联动更新，之后才进入补贴、利润率、年度净收益和可及性核算。该闭环保证老人支付额和可及性评价使用的是定价后的最终服务获得量，而不是问题一的原始需求或问题二的固定分配结果。
+
+\subsubsection{收入、补贴与题目口径利润率}
+
+为进行站点财务核算，记站点 $j$ 对服务 $k$ 的最终月有效服务量为
+\begin{equation}
+  E_{j,k}=\sum_{i\in\mathcal{A}_j}\sum_rE_{i,r,k}.
+  \label{eq:q3-station-effective-service}
+\end{equation}
+其中 $\mathcal{A}_j$ 是候选价格反馈后最终分配给站点 $j$ 的小区集合。由于本文用有效服务人次核算实际服务交易，服务站年收入和年直接服务成本分别为
+\begin{align}
+  R_j&=12\sum_kE_{j,k}p_k, \label{eq:q3-revenue}\\
+  VC_j&=12\sum_kE_{j,k}c_k. \label{eq:q3-variable-cost}
+\end{align}
+紧急救助在式 \eqref{eq:q3-revenue} 中因价格为零不形成收入，但在式 \eqref{eq:q3-variable-cost} 中仍计入直接成本。服务站固定运营成本取
+\begin{equation}
+  OC_j=365F_j,
+  \label{eq:q3-operating-cost}
+\end{equation}
+其中 $F_j$ 为站点日固定管理成本。
+
+政府对收费服务按有效服务人次给予补贴，并受每日补贴上限约束。若站点 $j$ 每日补贴上限为 $H_j$，则年度政府补贴为
+\begin{equation}
+  G_j=
+  \min\left(
+    2\sum_{k\ne\text{紧急救助}}12E_{j,k},
+    365H_j
+  \right).
+  \label{eq:q3-subsidy}
+\end{equation}
+式 \eqref{eq:q3-subsidy} 明确排除了紧急救助的人次补贴。记题目口径服务利润为
+\begin{equation}
+  ServiceProfit_j=R_j-VC_j.
+  \label{eq:q3-service-profit}
+\end{equation}
+则服务站题目口径利润率为
+\begin{equation}
+  \rho_j^{topic}
+  =
+  \frac{ServiceProfit_j+G_j-OC_j}{OC_j+\varepsilon}.
+  \label{eq:q3-topic-profit-rate}
+\end{equation}
+本文仅保留题目要求的上界约束
+\begin{equation}
+  \rho_j^{topic}\le 8\%,
+  \qquad \forall j.
+  \label{eq:q3-topic-profit-cap}
+\end{equation}
+不将 $\rho_j^{topic}\ge0$ 写成硬约束。这样既避免将低价补贴政策直接排除在可行域外，也便于将负利润率站点识别为后续需要统筹支持的保本风险点。
+
+\subsubsection{年度净收益与低负担定价选择}
+
+题目口径利润率只刻画式 \eqref{eq:q3-topic-profit-rate} 所对应的运营约束，不能替代对长期财务结果的判断。若站点 $j$ 的建设成本为 $B_j$ 万元，按 20 年等额分摊得到年化建设成本
+\begin{equation}
+  A_j=\frac{10000B_j}{20}.
+  \label{eq:q3-annualized-construction}
+\end{equation}
+据此另行定义年度净收益
+\begin{equation}
+  Net_j
+  =
+  R_j+G_j-VC_j-OC_j-A_j.
+  \label{eq:q3-annual-net}
+\end{equation}
+式 \eqref{eq:q3-annual-net} 用于解释站点保本风险，不替代式 \eqref{eq:q3-topic-profit-cap} 的硬约束。
+
+老人年度支付额也按最终有效服务人次核算：
+\begin{equation}
+  Pay
+  =
+  12\sum_i\sum_r\sum_kE_{i,r,k}p_k.
+  \label{eq:q3-elder-pay}
+\end{equation}
+在满足利润率上限约束的候选价格中，本文优先保留老人加权满意度较高的方案；随后以负利润率软惩罚
+\begin{equation}
+  L_{loss}
+  =
+  \sum_j\left[\max\left(0,-\rho_j^{topic}\right)\right]^2
+  \label{eq:q3-loss-penalty}
+\end{equation}
+识别局部保本风险，并继续比较式 \eqref{eq:q3-elder-pay} 给出的老人支付额和政府补贴总额 $\sum_jG_j$。因此，低负担并非通过忽略运营风险获得，而是在利润率上限、亏损风险提示和补贴压力之间联动筛选。
+
+\subsubsection{三类老人服务可及性评价}
+
+不同类型老人对照护服务和支付负担的敏感程度不同。为比较自理、半失能和失能老人实际获得服务的便利程度，本文从经济、地理和服务满足三个维度建立可及性指标，并始终基于最终有效服务人次 $E_{i,r,k}$ 计算。小区 $i$ 中第 $r$ 类老人的月支付额为
+\begin{equation}
+  Pay_{i,r}
+  =
+  \sum_kp_kE_{i,r,k},
+  \label{eq:q3-monthly-pay}
+\end{equation}
+消费预算仍取问题一得到的 $C_{i,r}$。经济可及性定义为
+\begin{equation}
+  A_{i,r}^{eco}
+  =
+  \min\left(
+    1,\frac{C_{i,r}}{Pay_{i,r}+\varepsilon}
+  \right).
+  \label{eq:q3-economic-accessibility}
+\end{equation}
+若小区 $i$ 已分配至服务站 $j^*(i)$，则地理可及性沿用距离满意度
+\begin{equation}
+  A_{i,r}^{geo}=S_{1,i,j^*(i)};
+  \label{eq:q3-geographic-accessibility}
+\end{equation}
+若未被覆盖，则该项取零。服务满足可及性取实际有效服务人次与消费约束后需求之比：
+\begin{equation}
+  A_{i,r}^{ser}
+  =
+  \frac{\sum_kE_{i,r,k}}
+  {\sum_kD_{i,r,k}+\varepsilon}.
+  \label{eq:q3-service-accessibility}
+\end{equation}
+
+考虑问题三关注补贴降负担，经济维度权重略高；同时，距离和供给满足程度均直接影响老人能否获得服务。综合可及性取
+\begin{equation}
+  A_{i,r}
+  =
+  0.4A_{i,r}^{eco}
+  +0.3A_{i,r}^{geo}
+  +0.3A_{i,r}^{ser}.
+  \label{eq:q3-overall-accessibility}
+\end{equation}
+第 $r$ 类老人的总体可及性按第 5 年末该类老人数加权汇总：
+\begin{equation}
+  A_r
+  =
+  \frac{\sum_iN_{i,r}^{(5)}A_{i,r}}
+  {\sum_iN_{i,r}^{(5)}}.
+  \label{eq:q3-type-accessibility}
+\end{equation}
+由式 \eqref{eq:q3-economic-accessibility}--\eqref{eq:q3-type-accessibility} 可知，价格和补贴主要影响经济可及性，站点分配决定地理可及性，满意度与容量折减共同进入服务满足可及性。
+
+\subsubsection{问题三求解与结果分析}
+
+按照“粗网格搜索--细网格搜索--整体浮动对照”的流程，模型共评估 $6277$ 组定价候选，其中满足题目利润率上限的可行候选为 $2122$ 组。最终采用统一服务价格方案：助餐、日间照料、上门护理、康复理疗和助浴的优化价格分别为 $7$ 元、$18$ 元、$29$ 元、$27$ 元和 $21$ 元，紧急救助保持 $0$ 元。与基准价格相比，五项收费服务均有不同程度下降。图 \ref{fig:q3-price-comparison} 给出了优化价格与基准价格对比；由于价格满意度上限为 $1$，低价优势主要继续体现在老人支付额和经济可及性改善上，而不会使价格满意度无限放大。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.86\textwidth]{fig5_price_vs_baseline.png}
+  \caption{优化价格与基准价格对比图}
+  \label{fig:q3-price-comparison}
+\end{figure}
+
+定价后老人加权满意度为 $0.8622$，年度支付额为 $35647892.66$ 元，年度政府补贴合计为 $2263000.00$ 元。三处服务站中，C 小型站题目口径利润率为 $-12.20\%$，年度净收益为 $-98068.66$ 元；D、G 两处大型站题目口径利润率分别为 $7.32\%$ 和 $7.72\%$，年度净收益分别为 $95130.46$ 元和 $101423.23$ 元。最高题目口径利润率未超过式 \eqref{eq:q3-topic-profit-cap} 的 $8\%$ 上限，但 C 站出现负利润率和负年度净收益，说明该站存在保本风险，需要通过政府统筹、财政兜底或后续运营效率改进进一步处理，不能将当前方案表述为所有站点均已完全财务可持续。
+
+三类老人可及性结果如图 \ref{fig:q3-accessibility} 所示。三类老人的经济可及性均为 $1$，说明在补贴导向定价与有效服务量核算下，最终支付额未突破对应消费预算；地理可及性约为 $0.911$，服务满足可及性约为 $0.853$，综合可及性均约为 $0.929$。其中三类老人综合得分差异较小，表明统一价格方案在老人类型层面保持了较稳定的可及性表现；与此同时，服务满足维度低于经济维度，说明后续改善重点仍应放在容量供给、站点响应和服务获得深度上。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.90\textwidth]{fig6_accessibility_by_elder_type.png}
+  \caption{三类老人可及性对比图}
+  \label{fig:q3-accessibility}
+\end{figure}
 
 \subsection{问题四模型的建立与求解}
 
-【待补充：步骤 8 撰写灵敏度与稳健性分析。】
+\subsubsection{情景设置与完整重求解流程}
+
+问题四用于考察关键外部参数变化后服务站建设、定价补贴和运营结果的稳定性。本文设置基准情景 $S0$，并在其基础上构造四个扰动情景：$S1$ 将 $60+$ 老人年增长率调整为 $8\%$；$S2$ 将自理老人向半失能老人转移概率调整为 $5.5\%$，将半失能老人向失能老人转移概率调整为 $9.5\%$；$S3$ 将各类服务站日固定管理成本提高 $20\%$；$S4$ 将总建设预算由 $120$ 万元调整为 $140$ 万元。记情景集合为
+\begin{equation}
+  \mathcal{S}=\{S0,S1,S2,S3,S4\}.
+  \label{eq:q4-scenario-set}
+\end{equation}
+除被扰动的参数外，其余数据清洗口径、消费约束规则、站点服务半径、满意度规则、补贴规则和利润率约束均与前三问保持一致。
+
+为避免将灵敏度分析简化为对最终指标的静态替换，本文对每个情景 $s\in\mathcal{S}$ 均重新执行前三问的完整求解流程。首先按该情景参数重新预测第 5 年末三类老人数量，并重新形成理论服务需求和消费约束后实际需求；其次将情景需求输入问题二的站点--规模枚举模型，重新得到预算可行的最优选址方案、小区分配关系、覆盖率、满意度和有效服务人次；最后在新站点方案上重新执行问题三定价搜索，使价格满意度、分配关系、补贴、题目口径利润率、年度净收益和可及性继续随情景联动更新。该流程可概括为
+\begin{equation}
+  \text{情景参数}
+  \rightarrow
+  (N_{i,r}^{(5)},D_{i,r,k})
+  \rightarrow
+  (J_s,m_s,j_s^*(i),E_{i,r,k}^{s})
+  \rightarrow
+  (\boldsymbol p_s,G_s,\rho_s^{topic},Net_s).
+  \label{eq:q4-resolve-chain}
+\end{equation}
+因此，问题四比较的并非单个参数变化后的局部修正值，而是每个情景下重新形成的“需求--选址--定价--财务”闭环结果。
+
+\subsubsection{方案变化度与稳健性评价}
+
+为同时描述空间布局、服务效果和财务结果的变化，本文以基准情景 $S0$ 为参照构造辅助方案变化度指标。设基准站点集合为 $J_0$，情景 $s$ 的站点集合为 $J_s$，并以小型、中型、大型站点规模等级分别记为 $1$、$2$、$3$。站点位置变化率和规模变化率定义为
+\begin{align}
+  V_{loc}^{s}
+  &=
+  1-
+  \frac{|J_0\cap J_s|}
+  {|J_0\cup J_s|+\varepsilon},
+  \label{eq:q4-location-variation}\\
+  V_{size}^{s}
+  &=
+  \frac{
+    \sum_{j\in J_0\cap J_s}|m_j^s-m_j^0|
+  }
+  {2|J_0\cap J_s|+\varepsilon}.
+  \label{eq:q4-size-variation}
+\end{align}
+在总体服务效果与财务维度，进一步定义覆盖率变化率、满意度变化率、年度净收益变化率和补贴变化率：
+\begin{align}
+  V_{cov}^{s}
+  &=
+  \frac{|CR_{srv}^{s}-CR_{srv}^{0}|}{CR_{srv}^{0}+\varepsilon},
+  &
+  V_{sat}^{s}
+  &=
+  \frac{|\bar S^{s}-\bar S^{0}|}{\bar S^{0}+\varepsilon},
+  \label{eq:q4-service-variation}\\
+  V_{net}^{s}
+  &=
+  \frac{|Net_s-Net_0|}{|Net_0|+\varepsilon},
+  &
+  V_{G}^{s}
+  &=
+  \frac{|G_s-G_0|}{G_0+\varepsilon}.
+  \label{eq:q4-finance-variation}
+\end{align}
+综合变化度取
+\begin{equation}
+  V_s
+  =
+  0.25V_{loc}^{s}
+  +0.15V_{size}^{s}
+  +0.20V_{cov}^{s}
+  +0.20V_{sat}^{s}
+  +0.10V_{net}^{s}
+  +0.10V_G^{s}.
+  \label{eq:q4-composite-variation}
+\end{equation}
+式 \eqref{eq:q4-composite-variation} 中，站点位置变化权重较高，用于强调服务网络重构对方案可实施性的影响；覆盖率和满意度共同反映服务获得效果；年度净收益与补贴变化则用于识别运营压力和财政压力。$V_s$ 越小，说明情景扰动后方案相对基准更稳定；若服务指标改善而年度净收益明显下降，则仍需将其识别为运营可持续性风险，而不能仅凭覆盖提升判断方案更优。
+
+\subsubsection{问题四求解与结果分析}
+
+各情景重新求解后的核心结果见表 \ref{tab:q4-scenario-summary}。表中收费服务价格按“助餐/日间照料/上门护理/康复理疗/助浴”的顺序列示；当某服务在不同站点存在整体浮动时，以价格区间表示。由结果可知，五个情景的题目口径服务覆盖率和地理覆盖率均接近 $1$，但有效覆盖率、需求满足率、满意度和财务表现会随需求结构、运营成本和建设预算变化而显著波动。
+
+\begin{table}[H]
+  \centering
+  \caption{问题四情景重求解结果汇总}
+  \label{tab:q4-scenario-summary}
+  \scriptsize
+  \begin{tabular}{c p{0.19\textwidth} p{0.24\textwidth} c c c c c}
+    \toprule
+    情景 & 站点方案 & 收费服务价格（元） & $CR_{eff}$（\%） & 满意度（\%） & 补贴（万元） & 年净收益（万元） & $\rho^{topic}$ 区间（\%） \\
+    \midrule
+    $S0$ & $C$ 小型；$D$ 大型；$G$ 大型 & $7/18/29/27/21$ & $85.30$ & $86.22$ & $226.30$ & $9.85$ & $[-12.20,7.72]$ \\
+    $S1$ & $C$ 小型；$E$ 大型；$H$ 大型 & $7/18/29/27/21$ & $82.66$ & $86.39$ & $226.30$ & $8.58$ & $[-12.75,7.85]$ \\
+    $S2$ & $C$ 小型；$D$ 大型；$G$ 大型 & $11.40$--$12.00/14.00$--$14.70/22.00$--$23.10/21.00$--$22.05/18.00$--$18.90$ & $84.53$ & $91.28$ & $131.40$ & $-148.90$ & $[-100.00,7.81]$ \\
+    $S3$ & $C$ 小型；$D$ 大型；$G$ 大型 & $6.00$--$6.30/22.80$--$24.00/22.00$--$23.10/21.00$--$23.10/18.00$--$18.90$ & $85.30$ & $93.36$ & $131.40$ & $-183.59$ & $[-100.00,7.86]$ \\
+    $S4$ & $A$ 大型；$E$ 中型；$G$ 大型；$I$ 小型 & $10/16/23/22/24$ & $90.17$ & $97.69$ & $255.50$ & $-70.54$ & $[-100.00,7.88]$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+在基准情景 $S0$ 下，最优方案仍为 $C$ 小型站、$D$ 大型站和 $G$ 大型站，总建设成本为 $108$ 万元。情景 $S1$ 将老人增长率提高至 $8\%$ 后，站点数量和建设成本保持不变，但两个大型站由 $D$、$G$ 调整为 $E$、$H$，说明人口规模变化会重新改变需求承接中心。该情景收费服务价格仍与基准方案一致，年度补贴也保持 $226.30$ 万元；有效覆盖率和需求满足率分别降至 $82.66\%$ 和 $82.68\%$，年度净收益降至 $8.58$ 万元。其综合变化度为 $0.2133$，主要由站点位置重排和财务指标小幅下降共同造成。
+
+情景 $S2$ 改变健康状态转移概率后，站点布局仍保持 $C$、$D$、$G$ 三站结构，说明在当前空间需求格局下，该布局对老人失能结构变化具有一定位置稳定性。但重新定价后，收费服务价格由基准统一价转为区间浮动方案，定价后满意度升至 $91.28\%$，有效覆盖率降为 $84.53\%$，年度补贴降为 $131.40$ 万元，年度净收益转为 $-148.90$ 万元。虽然各站最高题目口径利润率仍未超过 $8\%$，但最低利润率达到 $-100\%$，表明健康状态结构变化会显著放大保本风险，满意度提升不能掩盖运营可持续性压力。
+
+情景 $S3$ 仅提高日固定管理成本，空间需求、建设预算和问题二排序口径并未改变，因此最优站点位置与规模仍保持基准方案。固定成本上升直接压缩问题三财务表现：有效覆盖率和需求满足率仍与 $S0$ 基本一致，定价后满意度升至 $93.36\%$，但年度净收益下降为 $-183.59$ 万元，且综合变化度达到 $2.0227$，为全部扰动情景中的最大值。该结果说明固定运营成本是当前模型最敏感的财务参数之一，即使服务网络未重构，也可能使运营结果由小幅盈余转为明显亏损。
+
+情景 $S4$ 将总建设预算提高至 $140$ 万元后，模型重新选择 $A$ 大型站、$E$ 中型站、$G$ 大型站和 $I$ 小型站，站点数由三处扩展为四处，建设成本正好达到预算上限。扩张后有效覆盖率提高到 $90.17\%$，需求满足率提高到 $90.10\%$，定价后满意度提高到 $97.69\%$，表明额外预算能够改善服务网络承载能力和服务获得深度。与此同时，年度补贴提高至 $255.50$ 万元，年度净收益仍为 $-70.54$ 万元，最低题目口径利润率为负。因此，预算提高在本模型中表现为“扩张改善覆盖与满意度”，但并不意味着运营结果自动更优；扩张方案仍需结合财政承受能力和站点保本风险进一步筛选。
+
+图 \ref{fig:q4-scenario-metrics} 对比了各情景下的有效覆盖率、满意度、补贴和利润指标。结合变化度结果，$S1$ 的主要敏感性来自站点位置改变，$S2$ 和 $S3$ 则突出表现为年度净收益恶化，$S4$ 同时体现空间扩张收益与财务压力。相对基准方案，$S1$、$S2$、$S3$ 和 $S4$ 的综合变化度分别为 $0.2133$、$1.6656$、$2.0227$ 和 $1.0641$，在鲁棒性汇总中均被识别为需要重点讨论的高敏感情景。由此可见，健康状态转移、固定运营成本和建设预算变化都可能显著影响最终方案；其中固定管理成本扰动对经济结果的冲击最强，应在实际规划中优先开展成本核验和财政兜底评估。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\textwidth]{fig7_scenario_metrics_compare.png}
+  \caption{灵敏度情景主要指标对比图}
+  \label{fig:q4-scenario-metrics}
+\end{figure}

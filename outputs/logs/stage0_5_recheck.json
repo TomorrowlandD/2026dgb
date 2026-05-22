@@ -269,19 +269,19 @@
         },
         {
           "scenario": "S1",
-          "composite_variation": 0.2132853737325435
+          "composite_variation": 0.2132853737325402
         },
         {
           "scenario": "S2",
-          "composite_variation": 1.665625495190092
+          "composite_variation": 1.6656254951901492
         },
         {
           "scenario": "S3",
-          "composite_variation": 2.022656610583289
+          "composite_variation": 2.0226566105833594
         },
         {
           "scenario": "S4",
-          "composite_variation": 1.0640727638190834
+          "composite_variation": 1.0640727638191108
         }
       ]
     }

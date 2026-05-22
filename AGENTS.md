@@ -46,9 +46,15 @@ Remove-Item "C:\path\to\file.txt"
 
 当前尚未完成：
 
-- 最终严谨性修订：统一建模方案文档、代码注释/检查日志和论文写作口径；
 - 完整论文正文；
 - 附录与最终校验。
+
+当前写作辅助材料：
+
+- 最终严谨性修订说明：`docs/final_revision_notes.md`；
+- 最终一致性审查：`docs/final_consistency_audit.md`；
+- 论文关键结果摘要：`docs/paper_key_results_summary.md`；
+- 论文撰写指南：`docs/paper_writing_guide.md`。
 
 ## 总体路线
 

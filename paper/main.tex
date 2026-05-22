@@ -1,0 +1,39 @@
+\documentclass[UTF8,zihao=-4,a4paper]{ctexart}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\graphicspath{{../outputs/figures/}}
+
+% 封面页不显示页码；摘要页开始显示页码 1。
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+\begin{document}
+
+\input{sections/00_cover}
+\clearpage
+\setcounter{page}{1}
+\input{sections/01_abstract}
+\clearpage
+\input{sections/02_problem_restatement}
+\input{sections/03_problem_analysis}
+\input{sections/04_assumptions_symbols}
+\input{sections/05_model_solution}
+\input{sections/06_model_validation}
+\input{sections/07_model_evaluation}
+\input{sections/08_references_appendix}
+
+\end{document}

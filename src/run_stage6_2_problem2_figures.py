@@ -66,8 +66,8 @@ def plot_station_assignment() -> None:
                 "D": 1.45,
                 "H": 1.75,
                 "A": 3.55,
-                "B": 2.35,
-                "J": 2.15,
+                "B": 2.45,
+                "J": 2.52,
                 "C": -0.15,
             },
             "y": {
@@ -78,8 +78,8 @@ def plot_station_assignment() -> None:
                 "D": 0.38,
                 "H": 1.55,
                 "A": 0.05,
-                "B": -0.85,
-                "J": -0.18,
+                "B": -1.30,
+                "J": -0.50,
                 "C": -2.35,
             },
         }
@@ -163,10 +163,9 @@ def plot_station_assignment() -> None:
         f"站点数 {int(summary['station_count'])} | 建设成本 {summary['construction_cost_10k']:.0f} 万元 | "
         f"服务覆盖率 {summary['cr_srv'] * 100:.1f}%"
     )
-    fig.suptitle("图3 最优服务站-小区分配示意图", fontsize=16, weight="bold", y=0.975)
     fig.text(
         0.5,
-        0.912,
+        0.950,
         subtitle,
         ha="center",
         fontsize=11,
@@ -176,7 +175,7 @@ def plot_station_assignment() -> None:
     ax.text(
         0.5,
         -0.04,
-        "说明：坐标由距离矩阵降维生成，仅表示服务关系与相对距离，不代表真实地图位置。",
+        "说明：布局依据服务分配关系和标注距离进行示意调整，仅表示服务关系与距离量级，不代表真实地图位置。",
         transform=ax.transAxes,
         ha="center",
         fontsize=9,
@@ -185,7 +184,7 @@ def plot_station_assignment() -> None:
     ax.set_axis_off()
     ax.set_xlim(-3.95, 4.05)
     ax.set_ylim(-2.95, 2.05)
-    fig.subplots_adjust(top=0.84, bottom=0.12, left=0.03, right=0.97)
+    fig.subplots_adjust(top=0.89, bottom=0.12, left=0.03, right=0.97)
 
     for ext in ("png", "svg"):
         fig.savefig(FIG_DIR / f"fig3_station_assignment.{ext}", bbox_inches="tight")
@@ -251,7 +250,6 @@ def plot_station_utilization_capacity() -> None:
             transform=ax.get_xaxis_transform(),
         )
 
-    fig.suptitle("图4 各服务站利用率与容量可得系数", fontsize=16, weight="bold", y=0.98)
     ax.set_ylabel("比例")
     ax.set_ylim(0, 1.18)
     ax.set_xlim(-0.55, len(util) - 0.02)

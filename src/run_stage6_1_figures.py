@@ -96,23 +96,28 @@ def write_population_png(trend: pd.DataFrame) -> Path:
     configure_plot_style()
     fig, ax = plt.subplots(figsize=(9.8, 6.0))
     years = trend["year"].tolist()
+    label_offsets = {
+        "自理老人": -18,
+        "半失能老人": 14,
+        "失能老人": 7,
+    }
     for label in ELDER_TYPE_COLUMNS.values():
         values = trend[label].tolist()
         ax.plot(years, values, marker="o", linewidth=2.4, markersize=5.5, label=label, color=COLORS_ELDER[label])
         for year, value in zip(years, values):
-            offset = 22 if label != "半失能老人" else -38
+            offset = label_offsets[label]
             ax.annotate(
                 fmt_num(value),
                 (year, value),
-                xytext=(0, offset / 2),
+                xytext=(0, offset),
                 textcoords="offset points",
                 ha="center",
+                va="top" if offset < 0 else "bottom",
                 fontsize=8.5,
                 color=COLORS_ELDER[label],
                 fontweight="bold",
             )
 
-    ax.set_title("图1 三类老人五年预测趋势", fontsize=15, fontweight="bold", pad=14)
     ax.set_xlabel("年份 $t$")
     ax.set_ylabel("老人数量（人）")
     ax.set_xticks(years)
@@ -155,7 +160,6 @@ def write_demand_stack_png(pivot: pd.DataFrame) -> Path:
             fontweight="bold",
         )
 
-    ax.set_title("图2 第5年各小区消费约束后实际服务需求结构", fontsize=15, fontweight="bold", pad=14)
     ax.set_xlabel("小区")
     ax.set_ylabel("实际月服务需求（次/月）")
     ax.grid(axis="y", alpha=0.24)
@@ -182,7 +186,7 @@ def build_population_trend() -> tuple[pd.DataFrame, Path]:
     trend.to_csv(trend_out, index=False, encoding="utf-8-sig")
 
     width, height = 980, 600
-    left, right, top, bottom = 92, 62, 92, 118
+    left, right, top, bottom = 92, 62, 42, 118
     plot_w = width - left - right
     plot_h = height - top - bottom
     years = trend["year"].tolist()
@@ -196,8 +200,6 @@ def build_population_trend() -> tuple[pd.DataFrame, Path]:
         return top + plot_h - value / y_max * plot_h
 
     body: list[str] = []
-    body.append(svg_text(width / 2, 38, "图1 三类老人五年数量预测趋势", 22, weight="700"))
-    body.append(svg_text(width / 2, 64, "0 为当前年，1-5 为预测年末", 13, fill="#4B5563"))
 
     for tick in y_ticks:
         y = y_scale(tick)
@@ -213,9 +215,9 @@ def build_population_trend() -> tuple[pd.DataFrame, Path]:
         body.append(f'<line x1="{x:.1f}" y1="{height-bottom}" x2="{x:.1f}" y2="{height-bottom+5}" stroke="#111827"/>')
 
     label_offsets = {
-        "自理老人": -12,
+        "自理老人": 18,
         "半失能老人": -12,
-        "失能老人": 20,
+        "失能老人": -6,
     }
     for label in ELDER_TYPE_COLUMNS.values():
         points = [(x_scale(row["year"]), y_scale(row[label])) for _, row in trend.iterrows()]
@@ -280,7 +282,6 @@ def build_demand_stack() -> tuple[pd.DataFrame, Path]:
         return top + plot_h - value / y_max * plot_h
 
     body: list[str] = []
-    body.append(svg_text(width / 2, 38, "图2 第5年各小区消费约束后实际服务需求结构", 22, weight="700"))
     body.append(svg_text(width / 2, 64, "按服务项目堆叠，单位：次/月", 13, fill="#4B5563"))
 
     for tick in y_ticks:
@@ -338,7 +339,8 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     index_path = FIGURE_DIR / "figure_index.md"
-    index_text = """# 图表索引
+    if not index_path.exists():
+        index_text = """# 图表索引
 
 ## 阶段 6.1：问题 1 图表
 
@@ -347,7 +349,7 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
 | 图1 | 三类老人五年数量预测趋势 | `fig1_population_forecast.svg` | `fig1_population_forecast.png` | `outputs/tables/problem1_population_forecast.csv` | 展示未来五年三类老人规模变化 |
 | 图2 | 第5年各小区实际服务需求结构 | `fig2_community_demand_stack.svg` | `fig2_community_demand_stack.png` | `outputs/tables/problem1_actual_demand_by_community_service.csv` | 展示消费约束后各小区服务需求结构 |
 """
-    index_path.write_text(index_text, encoding="utf-8")
+        index_path.write_text(index_text, encoding="utf-8")
 
     log_path = LOG_DIR / "stage6_1_figures_check.md"
     generated_lines = [f"- {fig_name}: `{path.relative_to(ROOT)}`" for fig_name, path in generated.items()]
@@ -357,7 +359,7 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
 
 - 数据型图表均使用 Python 绘制。
 - 阶段 6.1 保留 SVG 主文件，并额外生成 PNG 备用格式以便 LaTeX 驱动和排版软件兼容。
-- 图 1 已标注各年份三类老人数量；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
+- 图 1 已标注各年份三类老人数量：蓝线标注在线段下方，绿线标注在线段上方，红线标注位于红线上方且向下微调以避开绿线标注，并已移除图内顶部标题；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
 - 未使用大模型生图。
 
 ## 生成文件
@@ -377,7 +379,7 @@ def write_index_and_log(generated: dict[str, Path]) -> None:
 - [x] 图 2 横轴为小区，纵轴为月服务需求次数，图例为服务项目。
 - [x] 图中服务需求展示值与论文表格取整规则一致。
 - [x] 图形能支持“需求规模和结构”的文字结论。
-- [x] 图 1 已添加各点取整人数标注，且标签没有超出画布；图 2 已添加各小区总量标注，未添加会造成拥挤的分段标签。
+- [x] 图 1 已添加各点取整人数标注：蓝线位于线段下方，绿线位于线段上方，红线在保持位于线上方的前提下向下微调且不与绿线标注重合，图内顶部标题已移除；图 2 已添加各小区总量标注，未添加会造成拥挤的分段标签。
 """
     log_path.write_text(log_text, encoding="utf-8")
 
@@ -389,9 +391,11 @@ def main() -> None:
 
     generated: dict[str, Path] = {}
     _, fig1_path = build_population_trend()
-    generated["图1 三类老人五年数量预测趋势"] = fig1_path
+    generated["图1 三类老人五年数量预测趋势（SVG 主文件）"] = fig1_path
+    generated["图1 三类老人五年数量预测趋势（PNG 备用格式）"] = FIGURE_DIR / "fig1_population_forecast.png"
     _, fig2_path = build_demand_stack()
-    generated["图2 第5年各小区实际服务需求结构"] = fig2_path
+    generated["图2 第5年各小区实际服务需求结构（SVG 主文件）"] = fig2_path
+    generated["图2 第5年各小区实际服务需求结构（PNG 备用格式）"] = FIGURE_DIR / "fig2_community_demand_stack.png"
     write_index_and_log(generated)
 
     print("Stage 6.1 figures generated:")

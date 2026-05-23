@@ -137,8 +137,15 @@ def build_price_comparison() -> tuple[pd.DataFrame, list[Path]]:
             weight="bold",
         )
 
-    fig.suptitle("图5 优化价格与基准价格对比", fontsize=16, weight="bold", y=0.98)
-    ax.set_title("紧急救助为公益免费服务，不参与价格优化", fontsize=10.5, color="#4B5563", pad=10)
+    fig.text(
+        0.5,
+        0.965,
+        "紧急救助为公益免费服务，不参与价格优化",
+        ha="center",
+        va="top",
+        fontsize=13,
+        color="#4B5563",
+    )
     ax.set_ylabel("价格（元/次）")
     ax.set_xticks(x)
     ax.set_xticklabels(summary["service"], fontsize=10)
@@ -146,7 +153,7 @@ def build_price_comparison() -> tuple[pd.DataFrame, list[Path]]:
     ax.legend(loc="upper left", frameon=False, ncol=2)
     ax.grid(axis="y", color="#E5E7EB", linewidth=0.8)
     ax.spines[["top", "right"]].set_visible(False)
-    fig.subplots_adjust(top=0.82, bottom=0.12, left=0.09, right=0.98)
+    fig.subplots_adjust(top=0.87, bottom=0.12, left=0.09, right=0.98)
 
     paths = save_figure(fig, "fig5_price_vs_baseline")
     return summary, paths
@@ -196,7 +203,6 @@ def build_accessibility_comparison() -> tuple[pd.DataFrame, list[Path]]:
                 rotation=0,
             )
 
-    fig.suptitle("图6 三类老人服务可及性对比", fontsize=16, weight="bold", y=0.98)
     fig.text(0.5, 0.91, "可及性由经济、地理、服务满足三个维度加权得到", ha="center", fontsize=10.5, color="#4B5563")
     ax.set_ylabel("可及性得分")
     ax.set_ylim(0, 1.12)

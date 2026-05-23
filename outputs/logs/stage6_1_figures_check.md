@@ -3,16 +3,16 @@
 ## 生成方式
 
 - 数据型图表均使用 Python 绘制。
-- 图 1 和图 2 保留 SVG 主文件，并补充 PNG 备用格式以兼容当前 LaTeX 编译链和后续排版软件。
-- 图 1 已标注各年份三类老人数量；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
+- 阶段 6.1 保留 SVG 主文件，并额外生成 PNG 备用格式以便 LaTeX 驱动和排版软件兼容。
+- 图 1 已标注各年份三类老人数量：蓝线标注在线段下方，绿线标注在线段上方，红线标注位于红线上方且向下微调以避开绿线标注，并已移除图内顶部标题；图 2 已标注各小区总服务需求。堆叠柱各分段不逐一标注，避免图面拥挤。
 - 未使用大模型生图。
 
 ## 生成文件
 
-- 图1 三类老人五年数量预测趋势: `outputs\figures\fig1_population_forecast.svg`
-- 图1 PNG 备用格式: `outputs\figures\fig1_population_forecast.png`
-- 图2 第5年各小区实际服务需求结构: `outputs\figures\fig2_community_demand_stack.svg`
-- 图2 PNG 备用格式: `outputs\figures\fig2_community_demand_stack.png`
+- 图1 三类老人五年数量预测趋势（SVG 主文件）: `outputs\figures\fig1_population_forecast.svg`
+- 图1 三类老人五年数量预测趋势（PNG 备用格式）: `outputs\figures\fig1_population_forecast.png`
+- 图2 第5年各小区实际服务需求结构（SVG 主文件）: `outputs\figures\fig2_community_demand_stack.svg`
+- 图2 第5年各小区实际服务需求结构（PNG 备用格式）: `outputs\figures\fig2_community_demand_stack.png`
 
 ## 配套论文表格
 
@@ -27,4 +27,4 @@
 - [x] 图 2 横轴为小区，纵轴为月服务需求次数，图例为服务项目。
 - [x] 图中服务需求展示值与论文表格取整规则一致。
 - [x] 图形能支持“需求规模和结构”的文字结论。
-- [x] 图 1 已添加各点取整人数标注，且标签没有超出画布；图 2 已添加各小区总量标注，未添加会造成拥挤的分段标签。
+- [x] 图 1 已添加各点取整人数标注：蓝线位于线段下方，绿线位于线段上方，红线在保持位于线上方的前提下向下微调且不与绿线标注重合，图内顶部标题已移除；图 2 已添加各小区总量标注，未添加会造成拥挤的分段标签。

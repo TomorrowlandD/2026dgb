@@ -1,10 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.20)  23 MAY 2026 03:48
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.20)  23 MAY 2026 13:58
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Desktop/2026-dgb/paper/main.tex
-(d:/Desktop/2026-dgb/paper/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (D:\Apps\Miktex\tex/latex/ctex\ctexart.cls
@@ -974,69 +973,29 @@ Package fontspec Info:
 ] (sections/02_problem_restatement.tex) (sections/03_problem_analysis.tex
 [2
 
-] [3]) (sections/04_assumptions_symbols.tex [4] [5] [6])
-(sections/05_model_solution.tex [7] [8] [9] [10]
+] [3]) (sections/04_assumptions_symbols.tex [4])
+(sections/05_model_solution.tex [5] [6] [7] [8]
 File: ../outputs/figures/fig1_population_forecast.png Graphic file (type bmp)
 <../outputs/figures/fig1_population_forecast.png>
- [11]
+ [9]
 File: ../outputs/figures/fig2_community_demand_stack.png Graphic file (type bmp
 )
 <../outputs/figures/fig2_community_demand_stack.png>
- [12] [13] [14]
+ [10] [11] [12]
 File: ../outputs/figures/fig3_station_assignment.png Graphic file (type bmp)
 <../outputs/figures/fig3_station_assignment.png>
- [15]
+ [13]
 File: ../outputs/figures/fig4_station_utilization_capacity.png Graphic file (ty
 pe bmp)
 <../outputs/figures/fig4_station_utilization_capacity.png>
 
-[16] [17] [18] [19] [20]
+[14] [15] [16] [17] [18]
 File: ../outputs/figures/fig5_price_vs_baseline.png Graphic file (type bmp)
 <../outputs/figures/fig5_price_vs_baseline.png>
 File: ../outputs/figures/fig6_accessibility_by_elder_type.png Graphic file (typ
 e bmp)
 <../outputs/figures/fig6_accessibility_by_elder_type.png>
- [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
-[]$\OT1/cmr/m/n/7.52812 11\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 40$\TU/lm
-r/m/n/7.52812 –$\OT1/cmr/m/n/7.52812 12\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52
-812 00/14\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
-\OT1/cmr/m/n/7.52812 14\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 70/22\OML/cm
-m/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –$\OT1/cmr/m/n/7.52
-812 23\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 10/21\OML/cmm/m/it/7.52812 :\
-OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
-[]$\OT1/cmr/m/n/7.52812 6\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr
-/m/n/7.52812 –$\OT1/cmr/m/n/7.52812 6\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.5281
-2 30/22\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 80$\TU/lmr/m/n/7.52812 –
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
-\OT1/cmr/m/n/7.52812 24\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00/22\OML/cm
-m/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –$\OT1/cmr/m/n/7.52
-812 23\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 10/21\OML/cmm/m/it/7.52812 :\
-OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
- []
-
-[23] [24]
-File: ../outputs/figures/fig7_scenario_metrics_compare.png Graphic file (type b
-mp)
-<../outputs/figures/fig7_scenario_metrics_compare.png>
-) (sections/06_model_validation.tex [25] [26])
-(sections/07_model_evaluation.tex [27] [28])
-(sections/08_references_appendix.tex [29]
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
-[]\TU/SimSun(0)/m/n/10.53937 明 确 四 个 问
- []
-
+ [19] [20]
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/BI" (it probably
@@ -1063,71 +1022,90 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+File: ../outputs/figures/fig7_scenario_metrics_compare.png Graphic file (type b
+mp)
+<../outputs/figures/fig7_scenario_metrics_compare.png>
+) (sections/06_model_validation.tex [21]
+Underfull \hbox (badness 2818) in paragraph at lines 17--18
+[]\TU/SimSun(0)/m/n/10.53937 输 入 数 据 与 公 益 服 务 口
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 23--24
+[]\TU/SimSun(0)/m/n/10.53937 满 足 建 设 预 算 与 服 务 半
+ []
+
+[22]) (sections/07_model_evaluation.tex [23] [24])
+(sections/08_references_appendix.tex [25]
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+[]\TU/SimSun(0)/m/n/10.53937 明 确 四 个 问
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
 [][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
 [][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
 [][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 [][][]$[][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--88
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 [][][]$[][][][][][][][] [] [][][][][][][][][][][] [] [][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 [][][]$[][][][][][][][] [] [][][][] [] [][][][][][][] [] [][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 [][][]$[][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
 [][][]$[][][][][][][][] [] [][][][][][][][] [] [][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--100
+Underfull \hbox (badness 10000) in paragraph at lines 123--123
 [][][]$[][][][][][][][] [] [][][][][][][][][] [] [][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
 [][][]$[][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][] []
  []
 
-[31] [32]) [33] (main.aux)
+[27] [28]) [29] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AAD4F9B1791378DBD54A0CE75A3C5DD3;5877.
+(rerunfilecheck)             Checksum: 5CBD204FEA96AFFD72B73649BAE179A3;5187.
  ) 
 Here is how much of TeX's memory you used:
- 18185 strings out of 402807
- 396098 string characters out of 5451345
- 829943 words of memory out of 5000000
- 46787 multiletter control sequences out of 15000+600000
- 645019 words of font info for 150 fonts, out of 8000000 for 9000
+ 18221 strings out of 402807
+ 397955 string characters out of 5451345
+ 827966 words of memory out of 5000000
+ 46817 multiletter control sequences out of 15000+600000
+ 646580 words of font info for 158 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,12n,111p,1216b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,12n,111p,1192b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (34 pages).
+Output written on main.pdf (30 pages).

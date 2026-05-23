@@ -262,7 +262,7 @@
 
 \subsubsection{问题二模型的求解与结果分析}
 
-按上述枚举与迭代流程，模型共考察 $1048576$ 个站点状态组合，其中排除空方案后通过预算剪枝保留 $15207$ 个预算可行方案。最终最优建设方案是在小区 C 建设小型服务站，在小区 D 和 G 建设大型服务站，总建设成本为 $108$ 万元，未超过题目给定的 $120$ 万元上限。该方案将 C 站用于承接 C 小区需求，D 站服务 A、B、D、H、J 五个小区，G 站服务 E、F、G、I 四个小区。图 \ref{fig:q2-station-assignment} 展示了最优站点规模和小区分配关系；该图依据距离矩阵构造服务关系示意，不表示真实地理地图。
+按上述枚举与迭代流程，模型共考察 $1048576$ 个站点状态组合，其中排除空方案后通过预算剪枝保留 $15207$ 个预算可行方案。最终最优建设方案是在小区 C 建设小型服务站，在小区 D 和 G 建设大型服务站，总建设成本为 $108$ 万元，未超过题目给定的 $120$ 万元上限。该方案将 C 站用于承接 C 小区需求，D 站服务 A、B、D、H、J 五个小区，G 站服务 E、F、G、I 四个小区。图 \ref{fig:q2-station-assignment} 展示了最优站点规模和小区分配关系，其中 C 站为对 C 小区的自覆盖关系；该图依据距离矩阵构造服务关系示意，不表示真实地理地图。
 
 \begin{figure}[H]
   \centering
@@ -598,6 +598,8 @@
   \caption{问题四情景重求解结果汇总}
   \label{tab:q4-scenario-summary}
   \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \resizebox{\textwidth}{!}{%
   \begin{tabular}{c p{0.19\textwidth} p{0.24\textwidth} c c c c c}
     \toprule
     情景 & 站点方案 & 收费服务价格（元） & $CR_{eff}$（\%） & 满意度（\%） & 补贴（万元） & 年净收益（万元） & $\rho^{topic}$ 区间（\%） \\
@@ -609,6 +611,7 @@
     $S4$ & $A$ 大型；$E$ 中型；$G$ 大型；$I$ 小型 & $10/16/23/22/24$ & $90.17$ & $97.69$ & $255.50$ & $-70.54$ & $[-100.00,7.88]$ \\
     \bottomrule
   \end{tabular}
+  }
 \end{table}
 
 在基准情景 $S0$ 下，最优方案仍为 $C$ 小型站、$D$ 大型站和 $G$ 大型站，总建设成本为 $108$ 万元。情景 $S1$ 将老人增长率提高至 $8\%$ 后，站点数量和建设成本保持不变，但两个大型站由 $D$、$G$ 调整为 $E$、$H$，说明人口规模变化会重新改变需求承接中心。该情景收费服务价格仍与基准方案一致，年度补贴也保持 $226.30$ 万元；有效覆盖率和需求满足率分别降至 $82.66\%$ 和 $82.68\%$，年度净收益降至 $8.58$ 万元。其综合变化度为 $0.2133$，主要由站点位置重排和财务指标小幅下降共同造成。
@@ -623,7 +626,7 @@
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.92\textwidth]{fig7_scenario_metrics_compare.png}
+  \includegraphics[width=\textwidth]{fig7_scenario_metrics_compare.png}
   \caption{灵敏度情景主要指标对比图}
   \label{fig:q4-scenario-metrics}
 \end{figure}

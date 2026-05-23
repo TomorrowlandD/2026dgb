@@ -1,9 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.20)  23 MAY 2026 03:14
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.20)  23 MAY 2026 03:48
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
+**d:/Desktop/2026-dgb/paper/main.tex
+(d:/Desktop/2026-dgb/paper/main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (D:\Apps\Miktex\tex/latex/ctex\ctexart.cls
@@ -973,19 +974,8 @@ Package fontspec Info:
 ] (sections/02_problem_restatement.tex) (sections/03_problem_analysis.tex
 [2
 
-] [3]) (sections/04_assumptions_symbols.tex [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
-[]\TU/SimSun(0)/m/n/10.53937 服 务 站 $\OML/cmm/m/it/10.53937 j$ \TU/SimSun(0)/m/n
-/10.53937 的 年 服 务 利 润，|  满 足
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--102
-[]\TU/SimSun(0)/m/n/10.53937 服 务 站 $\OML/cmm/m/it/10.53937 j$ \TU/SimSun(0)/m/n
-/10.53937 的 题 目 口 径 利 润 率，|  按
- []
-
-) (sections/05_model_solution.tex [7] [8] [9] [10]
+] [3]) (sections/04_assumptions_symbols.tex [4] [5] [6])
+(sections/05_model_solution.tex [7] [8] [9] [10]
 File: ../outputs/figures/fig1_population_forecast.png Graphic file (type bmp)
 <../outputs/figures/fig1_population_forecast.png>
  [11]
@@ -1007,14 +997,14 @@ File: ../outputs/figures/fig6_accessibility_by_elder_type.png Graphic file (typ
 e bmp)
 <../outputs/figures/fig6_accessibility_by_elder_type.png>
  [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 607--607
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 []$\OT1/cmr/m/n/7.52812 11\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 40$\TU/lm
 r/m/n/7.52812 –$\OT1/cmr/m/n/7.52812 12\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52
 812 00/14\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--607
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 \OT1/cmr/m/n/7.52812 14\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 70/22\OML/cm
 m/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –$\OT1/cmr/m/n/7.52
 812 23\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 10/21\OML/cmm/m/it/7.52812 :\
@@ -1022,23 +1012,18 @@ OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--608
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 []$\OT1/cmr/m/n/7.52812 6\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr
 /m/n/7.52812 –$\OT1/cmr/m/n/7.52812 6\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.5281
 2 30/22\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 80$\TU/lmr/m/n/7.52812 –
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--608
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 \OT1/cmr/m/n/7.52812 24\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00/22\OML/cm
 m/m/it/7.52812 :\OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –$\OT1/cmr/m/n/7.52
 812 23\OML/cmm/m/it/7.52812 :\OT1/cmr/m/n/7.52812 10/21\OML/cmm/m/it/7.52812 :\
 OT1/cmr/m/n/7.52812 00$\TU/lmr/m/n/7.52812 –
- []
-
-
-Overfull \hbox (87.09427pt too wide) in paragraph at lines 601--612
- [][] 
  []
 
 [23] [24]
@@ -1048,6 +1033,10 @@ mp)
 ) (sections/06_model_validation.tex [25] [26])
 (sections/07_model_evaluation.tex [27] [28])
 (sections/08_references_appendix.tex [29]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+[]\TU/SimSun(0)/m/n/10.53937 明 确 四 个 问
+ []
+
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/BI" (it probably
@@ -1074,96 +1063,57 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
-[]\TU/SimSun(0)/m/n/10.53937 明 确 四 个 问
- []
-
 [30]
-Overfull \hbox (44.41272pt too wide) in paragraph at lines 58--58
-[]\TU/lmtt/m/n/10.53937 src/run_stage6_2_problem2_figures.py| 
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+[][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Overfull \hbox (44.41272pt too wide) in paragraph at lines 59--59
-[]\TU/lmtt/m/n/10.53937 src/run_stage6_3_problem3_figures.py| 
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+[][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Overfull \hbox (44.41272pt too wide) in paragraph at lines 60--60
-[]\TU/lmtt/m/n/10.53937 src/run_stage6_4_problem4_figures.py| 
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[][][]$[][][] [] [][][] [] [][][][][][] [] [] [] [][][][][][][][] []
  []
 
 
-Overfull \hbox (8.68645pt too wide) in paragraph at lines 48--64
- [][] 
- []
-
-[31]
-Overfull \hbox (89.08823pt too wide) in paragraph at lines 68--69
-[]\TU/SimSun(0)/m/n/12.045 运 行 数 据 读 取 与 清 洗 程 序，|  生 成 \TU/lmtt/m/n/12.045 out
-puts/tables/stage1_* \TU/SimSun(0)/m/n/12.045 和 \TU/lmtt/m/n/12.045 stage1_clea
-ned_parameters.json\TU/SimSun(0)/m/n/12.045 。| 
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[][][]$[][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][][] []
  []
 
 
-Overfull \hbox (4.16252pt too wide) in paragraph at lines 69--70
-[]\TU/SimSun(0)/m/n/12.045 依 次 运 行 问 题 一、|  问 题 二、|  问 题 三 和 问 题 四 求 解 脚 本，|  生
- 成 \TU/lmtt/m/n/12.045 problem1_*\TU/SimSun(0)/m/n/12.045 、| \TU/lmtt/m/n/12.04
-5 problem2_*\TU/SimSun(0)/m/n/12.045 、|
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[][][]$[][][][][][][][] [] [][][][][][][][][][][] [] [][][][][][] []
  []
 
 
-Overfull \hbox (13.17325pt too wide) in paragraph at lines 88--88
-[]\TU/lmtt/m/n/10.53937 problem1_population_forecast.csv| 
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
+[][][]$[][][][][][][][] [] [][][][] [] [][][][][][][] [] [][][][] []
  []
 
 
-Overfull \hbox (7.64008pt too wide) in paragraph at lines 89--89
-[]\TU/lmtt/m/n/10.53937 problem1_theoretical_demand.csv| 
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+[][][]$[][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][] []
  []
 
 
-Overfull \hbox (2.1069pt too wide) in paragraph at lines 92--92
-[]\TU/lmtt/m/n/10.53937 problem2_best_station_plan.csv| 
+Underfull \hbox (badness 10000) in paragraph at lines 99--99
+[][][]$[][][][][][][][] [] [][][][][][][][] [] [][][][][][][] []
  []
 
 
-Overfull \hbox (13.17323pt too wide) in paragraph at lines 94--94
-[]\TU/lmtt/m/n/10.53937 problem2_station_utilization.csv| 
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[][][]$[][][][][][][][] [] [][][][][][][][][] [] [][][][][][][] []
  []
 
 
-Overfull \hbox (29.77274pt too wide) in paragraph at lines 100--100
-[]\TU/lmtt/m/n/10.53937 problem4_scenario_station_plans.csv| 
+Underfull \hbox (badness 10000) in paragraph at lines 101--101
+[][][]$[][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][] []
  []
 
-
-Overfull \hbox (2.1069pt too wide) in paragraph at lines 101--101
-[]\TU/lmtt/m/n/10.53937 problem4_variation_indices.csv| 
- []
-
-
-Overfull \hbox (7.64008pt too wide) in paragraph at lines 102--102
-[]\TU/lmtt/m/n/10.53937 problem4_robustness_summary.csv| 
- []
-
-[32]
-Overfull \hbox (20.94699pt too wide) in paragraph at lines 107--108
-[]\TU/SimSun(0)/m/n/12.045 正 文 共 使 用 七 张 核 心 图，|  均 由 阶 段 \TU/lmr/m/n/12.045 6 
-\TU/SimSun(0)/m/n/12.045 脚 本 根 据 结 果 表 绘 制，|  文 件 位 于 \TU/lmtt/m/n/12.045 outpu
-ts/figures/\TU/SimSun(0)/m/n/12.045 。|
- []
-
-[33])
-Overfull \hbox (6.80405pt too wide) in paragraph at lines 131--38
-[]\TU/SimSun(0)/m/n/12.045 若 需 要 重 新 生 成 论 文 \TU/lmr/m/n/12.045 PDF\TU/SimSun(0
-)/m/n/12.045 ，|  可 在 \TU/lmtt/m/n/12.045 paper/ \TU/SimSun(0)/m/n/12.045 目 录 下 
-编 译 \TU/lmtt/m/n/12.045 main.tex\TU/SimSun(0)/m/n/12.045 。|  论 文 图 形 由 \TU/lmtt
-/m/n/12.045 main.tex
- []
-
-[34] (main.aux)
+[31] [32]) [33] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/07/14>
@@ -1172,12 +1122,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AAD4F9B1791378DBD54A0CE75A3C5DD3;5877.
  ) 
 Here is how much of TeX's memory you used:
- 18186 strings out of 402807
- 396172 string characters out of 5451345
- 824943 words of memory out of 5000000
- 46788 multiletter control sequences out of 15000+600000
- 645027 words of font info for 151 fonts, out of 8000000 for 9000
+ 18185 strings out of 402807
+ 396098 string characters out of 5451345
+ 829943 words of memory out of 5000000
+ 46787 multiletter control sequences out of 15000+600000
+ 645019 words of font info for 150 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,13n,111p,1192b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,12n,111p,1216b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (35 pages).
+Output written on main.pdf (34 pages).
